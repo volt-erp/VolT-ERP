@@ -24,7 +24,9 @@
           <img src="assets/volt-icon.png" alt="VolT" />
           <span>VolT</span>
         </a>
-        <nav aria-label="روابط الموقع">
+
+        <!-- Desktop nav (hidden on mobile) -->
+        <nav class="topbar-nav-desktop" aria-label="روابط الموقع">
           <a href="#products">النسخ</a>
           <a href="#features">المميزات</a>
           <a href="#workflow">التشغيل</a>
@@ -32,14 +34,15 @@
           <a href="#downloads">التحميل</a>
           <a href="#trial">التجربة</a>
         </nav>
+
         <div class="top-actions">
           <button class="theme-switch" type="button" data-theme-toggle aria-label="تغيير وضع العرض">
             <i data-lucide="sun"></i>
-            <span>فاتح</span>
+            <span class="btn-label">فاتح</span>
           </button>
           <a class="whatsapp-link" href="https://wa.me/201098845589?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20VolT%20ERP" target="_blank" rel="noreferrer">
             <i data-lucide="message-circle"></i>
-            <span>واتساب</span>
+            <span class="btn-label">واتساب</span>
           </a>
           <div class="top-socials" aria-label="روابط VolT على السوشيال">
             <a class="social-link facebook-link" href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" aria-label="Facebook VOLT.EG1">
@@ -59,8 +62,43 @@
               </span>
             </a>
           </div>
+          <!-- Hamburger — mobile only -->
+          <button class="nav-toggle" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+          </button>
         </div>
       </header>
+
+      <!-- Mobile nav drawer -->
+      <div class="mobile-nav-drawer" id="mobile-nav" aria-hidden="true">
+        <nav aria-label="روابط الموقع">
+          <a href="#products" class="mnav-link">
+            <i data-lucide="layers"></i>النسخ
+          </a>
+          <a href="#features" class="mnav-link">
+            <i data-lucide="sparkles"></i>المميزات
+          </a>
+          <a href="#workflow" class="mnav-link">
+            <i data-lucide="workflow"></i>التشغيل
+          </a>
+          <a href="#plans" class="mnav-link">
+            <i data-lucide="badge-check"></i>الاشتراك
+          </a>
+          <a href="#downloads" class="mnav-link">
+            <i data-lucide="download"></i>التحميل
+          </a>
+          <a href="#trial" class="mnav-link">
+            <i data-lucide="key-round"></i>التجربة
+          </a>
+        </nav>
+        <a class="mnav-whatsapp" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
+          <i data-lucide="message-circle"></i>
+          تواصل على واتساب
+        </a>
+      </div>
+      <div class="nav-overlay" aria-hidden="true"></div>
 
       <main id="home">
         <section class="hero">
@@ -216,7 +254,7 @@
           <div class="section-head reveal">
             <p class="eyebrow">المميزات</p>
             <h2>إدارة كاملة مش شاشة كاشير بس</h2>
-            <p>كل ميزة معمولة لخدمة التشغيل اليومي</p>
+            <p>كل ميزة معمولة لخدمة التشغيل اليومي — من الفاتورة الضريبية لمقارنة الموردين</p>
           </div>
 
           <div class="feature-grid">
@@ -229,6 +267,16 @@
               <i data-lucide="receipt-text"></i>
               <strong>فواتير البيع</strong>
               <span>عرض وطباعة وواتساب</span>
+            </button>
+            <button class="feature-tile reveal tax-tile" type="button" data-open-feature="taxInvoice">
+              <i data-lucide="file-badge-2"></i>
+              <strong>الفاتورة الضريبية</strong>
+              <span>VAT + بيانات المنشأة الرسمية</span>
+            </button>
+            <button class="feature-tile reveal" type="button" data-open-feature="businessInfo">
+              <i data-lucide="building-2"></i>
+              <strong>بيانات المنشأة</strong>
+              <span>سجل تجاري ورقم ضريبي على كل فاتورة</span>
             </button>
             <button class="feature-tile reveal" type="button" data-open-feature="whatsapp">
               <i data-lucide="send"></i>

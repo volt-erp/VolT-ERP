@@ -2472,6 +2472,26 @@ html[data-theme="light"] .footer-socials a {
   -webkit-transform: translateY(0);
 }
 
+/* ─── TAX INVOICE TILE HIGHLIGHT ─── */
+.feature-tile.tax-tile {
+  border-color: rgba(248, 186, 68, 0.35);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(248, 186, 68, 0.14), transparent 44%),
+    var(--panel);
+}
+
+.feature-tile.tax-tile::after {
+  background: linear-gradient(90deg, transparent, var(--amber), var(--cyan));
+}
+
+.feature-tile.tax-tile svg {
+  color: var(--amber);
+}
+
+.feature-tile.tax-tile:hover {
+  border-color: rgba(248, 186, 68, 0.55);
+}
+
 /* ─── ANIMATIONS ─── */
 .reveal {
   animation: rise 0.7s ease both;
