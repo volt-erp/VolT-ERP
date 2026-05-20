@@ -2625,7 +2625,101 @@ html[data-theme="light"] .footer-socials a {
   -webkit-transform: translateY(0);
 }
 
-/* ─── TAX INVOICE TILE HIGHLIGHT ─── */
+/* ─── CREDENTIALS CARD ─── */
+.credentials-card {
+  grid-column: 1 / -1;
+  border-color: rgba(8, 199, 217, 0.35);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(8, 199, 217, 0.12), transparent 40%),
+    var(--panel);
+}
+
+.cred-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--cyan);
+  background: rgba(8, 199, 217, 0.12);
+}
+.cred-icon svg { width: 20px; height: 20px; }
+
+.cred-grid {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.cred-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(17, 29, 50, 0.6);
+}
+
+html[data-theme="light"] .cred-row {
+  background: rgba(242, 246, 251, 0.8);
+}
+
+.cred-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cred-label svg { width: 15px; height: 15px; }
+
+.cred-val-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-start: auto;
+}
+
+.cred-display {
+  color: var(--heading);
+  font-family: var(--font-mono, monospace);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  direction: ltr;
+}
+
+.cred-copy {
+  width: 32px !important;
+  padding: 0 !important;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cred-copy svg { width: 14px; height: 14px; }
+
+.cred-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--amber) !important;
+  background: rgba(248, 186, 68, 0.1);
+  font-size: 13px !important;
+  font-weight: 800;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+.cred-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+
 .feature-tile.tax-tile {
   border-color: rgba(248, 186, 68, 0.35);
   background:
