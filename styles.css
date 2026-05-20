@@ -2625,99 +2625,81 @@ html[data-theme="light"] .footer-socials a {
   -webkit-transform: translateY(0);
 }
 
-/* ─── CREDENTIALS CARD ─── */
-.credentials-card {
-  grid-column: 1 / -1;
-  border-color: rgba(8, 199, 217, 0.35);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(8, 199, 217, 0.12), transparent 40%),
-    var(--panel);
-}
-
-.cred-icon {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  color: var(--cyan);
-  background: rgba(8, 199, 217, 0.12);
-}
-.cred-icon svg { width: 20px; height: 20px; }
-
-.cred-grid {
-  display: grid;
-  gap: 10px;
-  margin: 4px 0;
-}
-
-.cred-row {
+/* ─── CREDENTIALS CARD (compact) ─── */
+.cred-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(17, 29, 50, 0.6);
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border: 1px solid rgba(8, 199, 217, 0.28);
+  border-radius: var(--radius);
+  background: rgba(8, 199, 217, 0.06);
 }
 
-html[data-theme="light"] .cred-row {
-  background: rgba(242, 246, 251, 0.8);
-}
-
-.cred-label {
+.cred-card-label {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   white-space: nowrap;
   flex-shrink: 0;
 }
-.cred-label svg { width: 15px; height: 15px; }
+.cred-card-label svg { width: 14px; height: 14px; color: var(--cyan); }
 
-.cred-val-wrap {
+.cred-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cred-pill {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-inline-start: auto;
+  padding: 6px 10px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(17, 29, 50, 0.7);
 }
 
-.cred-display {
+html[data-theme="light"] .cred-pill {
+  background: rgba(255,255,255,0.85);
+}
+
+.cred-pill span {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.cred-pill strong {
+  font-size: 13px;
   color: var(--heading);
-  font-family: var(--font-mono, monospace);
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: .04em;
+  font-family: monospace;
+  letter-spacing: .03em;
   direction: ltr;
 }
 
-.cred-copy {
-  width: 32px !important;
-  padding: 0 !important;
-  justify-content: center;
+.cred-copy-btn {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
   flex-shrink: 0;
+  transition: color .15s, border-color .15s;
 }
-.cred-copy svg { width: 14px; height: 14px; }
-
-.cred-note {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: var(--amber) !important;
-  background: rgba(248, 186, 68, 0.1);
-  font-size: 13px !important;
-  font-weight: 800;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-}
-.cred-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+.cred-copy-btn:hover { color: var(--cyan); border-color: rgba(8,199,217,.4); }
+.cred-copy-btn svg { width: 12px; height: 12px; }
 
 
 .feature-tile.tax-tile {

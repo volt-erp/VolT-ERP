@@ -674,41 +674,23 @@
           </div>
 
           <!-- Login credentials card -->
-          <article class="code-card credentials-card reveal">
-            <div class="license-card-head">
-              <div class="cred-icon">
-                <i data-lucide="user-round-check"></i>
+          <div class="cred-card reveal">
+            <span class="cred-card-label"><i data-lucide="user-round-check" aria-hidden="true"></i> بيانات الدخول للتجربة</span>
+            <div class="cred-pills">
+              <div class="cred-pill">
+                <span>اسم المستخدم</span>
+                <strong>admin</strong>
+                <button class="cred-copy-btn" type="button" data-copy="#cred-user" aria-label="نسخ"><i data-lucide="copy"></i></button>
+                <code id="cred-user" hidden>admin</code>
               </div>
-              <div>
-                <strong>بيانات الدخول للتجربة</strong>
-                <small>تقدر تغيرها بعد أول دخول</small>
-              </div>
-              <span>جاهز</span>
-            </div>
-            <div class="cred-grid">
-              <div class="cred-row">
-                <span class="cred-label"><i data-lucide="user" aria-hidden="true"></i> اسم المستخدم</span>
-                <div class="cred-val-wrap">
-                  <code id="cred-user" hidden>admin</code>
-                  <span class="cred-display">admin</span>
-                  <button class="copy-btn cred-copy" type="button" data-copy="#cred-user" aria-label="نسخ اسم المستخدم">
-                    <i data-lucide="copy"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="cred-row">
-                <span class="cred-label"><i data-lucide="lock-keyhole" aria-hidden="true"></i> كلمة المرور</span>
-                <div class="cred-val-wrap">
-                  <code id="cred-pass" hidden>admin123</code>
-                  <span class="cred-display">admin123</span>
-                  <button class="copy-btn cred-copy" type="button" data-copy="#cred-pass" aria-label="نسخ كلمة المرور">
-                    <i data-lucide="copy"></i>
-                  </button>
-                </div>
+              <div class="cred-pill">
+                <span>كلمة المرور</span>
+                <strong>admin123</strong>
+                <button class="cred-copy-btn" type="button" data-copy="#cred-pass" aria-label="نسخ"><i data-lucide="copy"></i></button>
+                <code id="cred-pass" hidden>admin123</code>
               </div>
             </div>
-            <p class="cred-note"><i data-lucide="info" aria-hidden="true"></i> بعد أول دخول روح الإعدادات وغيّر كلمة المرور لحاجة خاصة بيك</p>
-          </article>
+          </div>
 
           <div class="code-deck">
             <article class="code-card reveal">
