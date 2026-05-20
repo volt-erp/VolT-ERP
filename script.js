@@ -691,7 +691,39 @@ function toggleAssistant(open) {
   launcher.setAttribute("aria-expanded", shouldOpen ? "true" : "false");
 }
 
+function openDrawer() {
+  const drawer = document.getElementById("mobile-drawer");
+  const overlay = document.getElementById("drawer-overlay");
+  const toggle = document.querySelector(".nav-toggle");
+  if (!drawer) return;
+  drawer.classList.add("is-open");
+  drawer.setAttribute("aria-hidden", "false");
+  overlay && overlay.classList.add("is-open");
+  toggle && toggle.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById("mobile-drawer");
+  const overlay = document.getElementById("drawer-overlay");
+  const toggle = document.querySelector(".nav-toggle");
+  if (!drawer) return;
+  drawer.classList.remove("is-open");
+  drawer.setAttribute("aria-hidden", "true");
+  overlay && overlay.classList.remove("is-open");
+  toggle && toggle.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
 function wireEvents() {
+  // Drawer
+  document.querySelector(".nav-toggle")?.addEventListener("click", openDrawer);
+  document.querySelector(".drawer-close")?.addEventListener("click", closeDrawer);
+  document.getElementById("drawer-overlay")?.addEventListener("click", closeDrawer);
+  document.querySelectorAll(".drawer-link").forEach(link => {
+    link.addEventListener("click", closeDrawer);
+  });
+
   document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
     const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
     setTheme(current === "dark" ? "light" : "dark");
@@ -759,10 +791,34 @@ function wireEvents() {
     if (event.key === "Escape") {
       closeFeature();
       toggleAssistant(false);
+      closeDrawer();
     }
   });
 }
 
 initTheme();
 wireEvents();
-window.addEventListener("DOMContentLoaded", bootIcons);
+window.addEventListener("DOMContentLoaded", () => {
+  bootIcons();
+
+  // Reveal animation — fade in elements as they scroll into view
+  const revealEls = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback — just show everything
+    revealEls.forEach((el) => el.classList.add("revealed"));
+  }
+});

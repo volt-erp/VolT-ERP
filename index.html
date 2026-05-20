@@ -25,8 +25,7 @@
           <span>VolT</span>
         </a>
 
-        <!-- Desktop nav (hidden on mobile) -->
-        <nav class="topbar-nav-desktop" aria-label="روابط الموقع">
+        <nav class="topbar-nav" aria-label="روابط الموقع">
           <a href="#products">النسخ</a>
           <a href="#features">المميزات</a>
           <a href="#workflow">التشغيل</a>
@@ -36,23 +35,15 @@
         </nav>
 
         <div class="top-actions">
-          <button class="theme-switch" type="button" data-theme-toggle aria-label="تغيير وضع العرض">
-            <i data-lucide="sun"></i>
-            <span class="btn-label">فاتح</span>
-          </button>
-          <a class="whatsapp-link" href="https://wa.me/201098845589?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20VolT%20ERP" target="_blank" rel="noreferrer">
-            <i data-lucide="message-circle"></i>
-            <span class="btn-label">واتساب</span>
-          </a>
-          <div class="top-socials" aria-label="روابط VolT على السوشيال">
-            <a class="social-link facebook-link" href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" aria-label="Facebook VOLT.EG1">
+          <div class="top-socials">
+            <a class="social-link facebook-link" href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" aria-label="Facebook">
               <span class="social-mark">
                 <svg class="social-icon facebook-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M14.2 8.3H16V5.2c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.5H6v3.5h2.8V23h3.7v-7.4h3l.5-3.5h-3.5V10c0-1 .3-1.7 1.7-1.7Z"></path>
                 </svg>
               </span>
             </a>
-            <a class="social-link instagram-link" href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" aria-label="Instagram VOLT.ERP1">
+            <a class="social-link instagram-link" href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" aria-label="Instagram">
               <span class="social-mark">
                 <svg class="social-icon instagram-icon" viewBox="0 0 24 24" aria-hidden="true">
                   <rect x="4" y="4" width="16" height="16" rx="5"></rect>
@@ -62,8 +53,14 @@
               </span>
             </a>
           </div>
-          <!-- Hamburger — mobile only -->
-          <button class="nav-toggle" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="mobile-nav">
+          <a class="whatsapp-link" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
+            <i data-lucide="message-circle"></i>
+            <span class="wa-label">واتساب</span>
+          </a>
+          <button class="theme-switch" type="button" data-theme-toggle aria-label="وضع العرض">
+            <i data-lucide="sun"></i>
+          </button>
+          <button class="nav-toggle" type="button" aria-label="القائمة" aria-expanded="false">
             <span class="burger-bar"></span>
             <span class="burger-bar"></span>
             <span class="burger-bar"></span>
@@ -71,34 +68,49 @@
         </div>
       </header>
 
-      <!-- Mobile nav drawer -->
-      <div class="mobile-nav-drawer" id="mobile-nav" aria-hidden="true">
-        <nav aria-label="روابط الموقع">
-          <a href="#products" class="mnav-link">
-            <i data-lucide="layers"></i>النسخ
-          </a>
-          <a href="#features" class="mnav-link">
-            <i data-lucide="sparkles"></i>المميزات
-          </a>
-          <a href="#workflow" class="mnav-link">
-            <i data-lucide="workflow"></i>التشغيل
-          </a>
-          <a href="#plans" class="mnav-link">
-            <i data-lucide="badge-check"></i>الاشتراك
-          </a>
-          <a href="#downloads" class="mnav-link">
-            <i data-lucide="download"></i>التحميل
-          </a>
-          <a href="#trial" class="mnav-link">
-            <i data-lucide="key-round"></i>التجربة
-          </a>
-        </nav>
-        <a class="mnav-whatsapp" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
-          <i data-lucide="message-circle"></i>
-          تواصل على واتساب
-        </a>
+      <!-- Mobile drawer — hidden until hamburger click -->
+      <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="drawer-inner">
+          <div class="drawer-head">
+            <a class="brand" href="#home">
+              <img src="assets/volt-icon.png" alt="VolT" />
+              <span>VolT ERP</span>
+            </a>
+            <button class="drawer-close" type="button" aria-label="أغلق القائمة">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <nav class="drawer-nav">
+            <a href="#products" class="drawer-link"><i data-lucide="layers"></i><span>النسخ</span></a>
+            <a href="#features" class="drawer-link"><i data-lucide="sparkles"></i><span>المميزات</span></a>
+            <a href="#workflow" class="drawer-link"><i data-lucide="workflow"></i><span>التشغيل</span></a>
+            <a href="#plans" class="drawer-link"><i data-lucide="badge-check"></i><span>الاشتراك</span></a>
+            <a href="#downloads" class="drawer-link"><i data-lucide="download"></i><span>التحميل</span></a>
+            <a href="#trial" class="drawer-link"><i data-lucide="key-round"></i><span>التجربة</span></a>
+          </nav>
+          <div class="drawer-footer">
+            <a class="drawer-wa" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
+              <i data-lucide="message-circle"></i>
+              تواصل على واتساب
+            </a>
+            <div class="drawer-socials">
+              <a href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" class="facebook-link">
+                <span class="social-mark">
+                  <svg class="social-icon facebook-icon" viewBox="0 0 24 24"><path d="M14.2 8.3H16V5.2c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.5H6v3.5h2.8V23h3.7v-7.4h3l.5-3.5h-3.5V10c0-1 .3-1.7 1.7-1.7Z"></path></svg>
+                </span>
+                Facebook
+              </a>
+              <a href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" class="instagram-link">
+                <span class="social-mark">
+                  <svg class="social-icon instagram-icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"></rect><circle cx="12" cy="12" r="3.4"></circle><circle cx="17" cy="7" r="1"></circle></svg>
+                </span>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="nav-overlay" aria-hidden="true"></div>
+      <div class="drawer-overlay" id="drawer-overlay"></div>
 
       <main id="home">
         <section class="hero">
