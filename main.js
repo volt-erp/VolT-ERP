@@ -7,25 +7,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Navbar Scroll Effect
-    const nav = document.querySelector('.navbar');
+    const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            nav.classList.add('shadow-lg');
-            nav.style.padding = '10px 0';
+            navbar.classList.add('scrolled');
         } else {
-            nav.classList.remove('shadow-lg');
-            nav.style.padding = '15px 0';
+            navbar.classList.remove('scrolled');
         }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && document.querySelector(href)) {
+                e.preventDefault();
+                document.querySelector(href).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
 
 function openDemo() {
     const overlay = document.getElementById('demoOverlay');
     const frame = document.getElementById('demoFrame');
-    overlay.style.display = 'block';
+    overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    
-    // Load the demo content (to be built in next phase)
     frame.src = 'demo/index.html';
 }
 
@@ -36,3 +45,10 @@ function closeDemo() {
     document.body.style.overflow = 'auto';
     frame.src = 'about:blank';
 }
+
+// Close demo on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeDemo();
+    }
+});
