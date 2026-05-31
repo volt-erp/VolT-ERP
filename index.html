@@ -3,894 +3,302 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=no" />
-    <title>VolT ERP | إدارة النشاط من البداية للنهاية</title>
-    <meta name="description" content="VolT ERP نظام متكامل لإدارة المبيعات والمخزون والمشتريات والعملاء والموردين والموظفين والرواتب والتقارير على الكمبيوتر والموبايل." />
+    <title>VolT ERP | إدارة النشاط بالكامل</title>
+    <meta name="description" content="VolT ERP نظام احترافي لإدارة النشاط بالكامل: بيع ومخزون ومشتريات وعملاء وموردين وصيانة وحسابات وتقارير وواتساب على الكمبيوتر والموبايل." />
     <meta property="og:title" content="VolT ERP" />
-    <meta property="og:description" content="إدارة كاملة من البيع والمخزون لحد الحسابات والتقارير والمتابعة." />
+    <meta property="og:description" content="إدارة النشاط بالكامل من البيع والمخزون حتى الحسابات والتقارير والواتساب في تجربة واحدة." />
     <meta property="og:image" content="assets/pc/dashboard.png" />
-    <meta name="theme-color" content="#050b18" />
+    <meta name="theme-color" content="#05070d" />
     <link rel="icon" href="assets/volt-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body>
+    <div class="electric-bg" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
 
-    <!-- ════ TOPBAR ════ -->
-    <header class="topbar" id="topbar">
-      <div class="topbar-inner">
-        <a class="brand" href="#home" aria-label="VolT ERP">
-          <img src="assets/volt-icon.png" alt="VolT" />
-          <span class="brand-name">VolT <em>ERP</em></span>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="VolT ERP">
+        <img src="assets/volt-icon.png" alt="VolT" />
+        <span>VolT ERP</span>
+      </a>
+      <nav class="topbar-nav" aria-label="روابط الموقع">
+        <a href="#systems">النسخ</a>
+        <a href="#features">المميزات</a>
+        <a href="#live-demo">تجربة مباشرة</a>
+        <a href="#missing">اكتمال الموقع</a>
+        <a href="#downloads">التحميل</a>
+        <a href="#trial">بيانات الدخول</a>
+      </nav>
+      <div class="top-actions">
+        <a class="mini-social" href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" aria-label="Facebook">
+          <i data-lucide="facebook"></i>
         </a>
-
-        <nav class="topbar-nav" aria-label="روابط الموقع">
-          <a href="#products">النسخ</a>
-          <a href="#features">المميزات</a>
-          <a href="#screens">الشاشات</a>
-          <a href="#plans">الاشتراك</a>
-          <a href="#downloads">التحميل</a>
-          <a href="#trial">التجربة</a>
-        </nav>
-
-        <div class="top-actions">
-          <div class="top-socials">
-            <a class="social-btn fb-btn" href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.2 8.3H16V5.2c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.5H6v3.5h2.8V23h3.7v-7.4h3l.5-3.5h-3.5V10c0-1 .3-1.7 1.7-1.7Z"/></svg>
-            </a>
-            <a class="social-btn ig-btn" href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-          </div>
-          <a class="wa-btn" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
-            <i data-lucide="message-circle"></i>
-            <span>واتساب</span>
-          </a>
-          <button class="theme-btn" type="button" data-theme-toggle aria-label="وضع العرض">
-            <i data-lucide="sun"></i>
-          </button>
-          <button class="hamburger" type="button" aria-label="القائمة" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
+        <a class="mini-social" href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <i data-lucide="instagram"></i>
+        </a>
+        <a class="btn small primary" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20VolT%20ERP" target="_blank" rel="noreferrer">
+          <i data-lucide="message-circle"></i>
+          واتساب
+        </a>
+        <button class="nav-toggle" type="button" aria-label="القائمة" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
-    <!-- ════ MOBILE DRAWER ════ -->
-    <div class="drawer" id="drawer" aria-hidden="true">
-      <div class="drawer-body">
-        <div class="drawer-head">
-          <a class="brand" href="#home">
-            <img src="assets/volt-icon.png" alt="VolT" />
-            <span class="brand-name">VolT <em>ERP</em></span>
-          </a>
-          <button class="drawer-x" type="button" aria-label="أغلق"><i data-lucide="x"></i></button>
-        </div>
-        <nav class="drawer-nav">
-          <a href="#products" class="drawer-item"><i data-lucide="layers"></i>النسخ</a>
-          <a href="#features" class="drawer-item"><i data-lucide="sparkles"></i>المميزات</a>
-          <a href="#screens" class="drawer-item"><i data-lucide="monitor"></i>الشاشات</a>
-          <a href="#plans" class="drawer-item"><i data-lucide="badge-check"></i>الاشتراك</a>
-          <a href="#downloads" class="drawer-item"><i data-lucide="download"></i>التحميل</a>
-          <a href="#trial" class="drawer-item"><i data-lucide="play-circle"></i>التجربة</a>
-        </nav>
-        <div class="drawer-foot">
-          <a class="drawer-wa" href="https://wa.me/201098845589" target="_blank" rel="noreferrer">
-            <i data-lucide="message-circle"></i>تواصل على واتساب
-          </a>
-          <div class="drawer-socials">
-            <a href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" class="fb-btn social-btn">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.2 8.3H16V5.2c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.5H6v3.5h2.8V23h3.7v-7.4h3l.5-3.5h-3.5V10c0-1 .3-1.7 1.7-1.7Z"/></svg>
-              Facebook
-            </a>
-            <a href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" class="ig-btn social-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
-              Instagram
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="mobile-drawer" aria-hidden="true">
+      <nav>
+        <a href="#systems">النسخ</a>
+        <a href="#features">المميزات</a>
+        <a href="#live-demo">تجربة مباشرة</a>
+        <a href="#missing">اكتمال الموقع</a>
+        <a href="#downloads">التحميل</a>
+        <a href="#trial">بيانات الدخول</a>
+      </nav>
     </div>
-    <div class="drawer-overlay" id="drawer-overlay"></div>
 
-    <!-- ════ MAIN ════ -->
     <main id="home">
-
-      <!-- ── HERO ── -->
-      <section class="hero" aria-label="VolT ERP">
-        <div class="hero-bg" aria-hidden="true">
-          <div class="bg-orb orb-1"></div>
-          <div class="bg-orb orb-2"></div>
-          <div class="bg-orb orb-3"></div>
-          <div class="bg-grid"></div>
-        </div>
-
-        <div class="hero-content">
-          <div class="hero-copy reveal">
-            <span class="eyebrow-tag">
-              <span class="eyebrow-dot"></span>
-              منظومة تشغيل متكاملة
-            </span>
-            <h1>
-              كل نشاطك في<br />
-              <span class="headline-accent">نظام واحد</span>
-            </h1>
-            <p class="hero-lead">
-              VolT ERP يدير المبيعات والمخزون والمشتريات والعملاء والموردين والرواتب والتقارير — كل حاجة من مكان واحد واضح.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20VolT%20ERP" target="_blank" rel="noreferrer">
-                <i data-lucide="shopping-bag"></i>
-                اطلب الآن
-              </a>
-              <button class="btn btn-outline" type="button" data-open-trial>
-                <i data-lucide="play-circle"></i>
-                جرّب البرنامج
-              </button>
-            </div>
-            <div class="hero-chips">
-              <span><i data-lucide="check"></i> كمبيوتر وموبايل</span>
-              <span><i data-lucide="check"></i> بدون اشتراك كلاود</span>
-              <span><i data-lucide="check"></i> فاتورة ضريبية</span>
-            </div>
+      <section class="hero section">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><i data-lucide="zap"></i> إدارة النشاط بالكامل</p>
+          <h1><span>VolT ERP</span><span>لإدارة نشاطك</span><span>بالكامل</span></h1>
+          <p class="hero-lead">
+            مش مجرد كاشير. VolT ERP يدير المبيعات، المخزون، المشتريات، العملاء، الموردين، الصيانة، الحسابات، الموظفين، التقارير، والواتساب داخل تجربة واحدة.
+          </p>
+          <div class="hero-actions">
+            <button class="btn primary" type="button" data-open-demo><i data-lucide="play-circle"></i> افتح التجربة</button>
+            <a class="btn secondary" href="#downloads"><i data-lucide="download"></i> حمّل النسخ</a>
+            <a class="btn ghost" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20VolT%20ERP" target="_blank" rel="noreferrer"><i data-lucide="shopping-bag"></i> اطلب شراء</a>
           </div>
-
-          <div class="hero-visual reveal" aria-label="VolT على الكمبيوتر والموبايل">
-            <!-- Desktop mockup -->
-            <div class="mock-desktop" data-aos>
-              <div class="mock-desktop-top">
-                <span class="dot dot-r"></span>
-                <span class="dot dot-y"></span>
-                <span class="dot dot-g"></span>
-                <em>VolT ERP — لوحة التحكم</em>
-              </div>
-              <div class="mock-desktop-screen">
-                <img src="assets/pc/dashboard.png" alt="لوحة تحكم VolT" loading="eager" />
-              </div>
-              <div class="mock-desktop-stand"></div>
-              <div class="mock-desktop-base"></div>
-            </div>
-            <!-- Phone mockup -->
-            <div class="mock-phone" data-aos-delay>
-              <div class="mock-phone-notch"></div>
-              <div class="mock-phone-screen">
-                <img src="assets/mobile/pos.png" alt="نقطة البيع على الموبايل" loading="eager" />
-              </div>
-              <div class="mock-phone-btn"></div>
-            </div>
-            <!-- Float badges -->
-            <button class="float-badge badge-pos" type="button" data-open-feature="pos">
-              <i data-lucide="receipt-text"></i>
-              <span>كاشير سريع</span>
-            </button>
-            <button class="float-badge badge-wa" type="button" data-open-feature="whatsapp">
-              <i data-lucide="send"></i>
-              <span>فاتورة واتساب</span>
-            </button>
-            <button class="float-badge badge-net" type="button" data-open-feature="network">
-              <i data-lucide="network"></i>
-              <span>ربط داخلي</span>
-            </button>
+          <div class="hero-proof">
+            <span><strong>PC</strong> نسخة إدارة كاملة</span>
+            <span><strong>Android</strong> بيع ومتابعة</span>
+            <span><strong>LAN</strong> ربط داخلي</span>
           </div>
         </div>
 
-        <!-- Quick stats strip -->
-        <div class="hero-stats reveal">
-          <button type="button" data-open-feature="pos">
-            <i data-lucide="monitor-up"></i>
-            <div><strong>نقطة البيع</strong><small>كاشير وفواتير وعروض أسعار</small></div>
+        <div class="hero-stage reveal" aria-label="عرض VolT على الأجهزة">
+          <img class="stage-photo" src="assets/premium/device-desk.jpg" alt="أجهزة عمل حديثة" />
+          <div class="bolt-line bolt-one"></div>
+          <div class="bolt-line bolt-two"></div>
+
+          <div class="monitor-device floating-slow">
+            <div class="device-bar"><span></span><span></span><span></span><strong>Dashboard</strong></div>
+            <img src="assets/pc/dashboard.png" alt="لوحة تحكم VolT ERP" />
+          </div>
+
+          <div class="tablet-device floating-mid">
+            <img src="assets/pc/reports.png" alt="تقارير VolT ERP على تابلت" />
+          </div>
+
+          <div class="phone-device floating-fast">
+            <span class="phone-notch"></span>
+            <img src="assets/mobile/pos.png" alt="نقطة البيع على الموبايل" />
+          </div>
+
+          <button class="spark-card card-one" type="button" data-open-demo>
+            <i data-lucide="receipt-text"></i>
+            <span>فاتورة مباشرة</span>
           </button>
-          <button type="button" data-open-feature="inventory">
-            <i data-lucide="package-check"></i>
-            <div><strong>المخزون والمشتريات</strong><small>منتجات وموردين وباركود</small></div>
+          <button class="spark-card card-two" type="button" data-scroll="#features">
+            <i data-lucide="barcode"></i>
+            <span>باركود ومخزون</span>
           </button>
-          <button type="button" data-open-feature="staff">
-            <i data-lucide="users-round"></i>
-            <div><strong>الإدارة والحسابات</strong><small>موظفين ورواتب وتقارير</small></div>
+          <button class="spark-card card-three" type="button" data-scroll="#missing">
+            <i data-lucide="sparkles"></i>
+            <span>مميزات ERP كاملة</span>
           </button>
         </div>
       </section>
 
-      <!-- ── POWER STRIP ── -->
-      <section class="power-strip" aria-label="أبرز المحاور">
-        <button type="button" data-open-feature="pos">
-          <i data-lucide="badge-dollar-sign"></i>
-          <strong>بيع أسرع</strong>
-          <span>كاشير وفواتير وواتساب</span>
-        </button>
-        <button type="button" data-open-feature="inventory">
-          <i data-lucide="boxes"></i>
-          <strong>مخزون مضبوط</strong>
-          <span>منتجات ومشتريات وموردين</span>
-        </button>
-        <button type="button" data-open-feature="staff">
-          <i data-lucide="briefcase-business"></i>
-          <strong>إدارة تشغيل</strong>
-          <span>موظفين ورواتب وصلاحيات</span>
-        </button>
-        <button type="button" data-open-feature="network">
-          <i data-lucide="network"></i>
-          <strong>ربط داخلي</strong>
-          <span>كمبيوتر وموبايل معاً</span>
-        </button>
+      <section class="power-strip section" aria-label="ملخص سريع">
+        <article><i data-lucide="zap"></i><strong>إدارة نشاط كاملة</strong><span>بيع ومخزون وحسابات وتقارير</span></article>
+        <article><i data-lucide="boxes"></i><strong>مخزون حي</strong><span>كميات، فئات، موردين، جرد، تحويلات</span></article>
+        <article><i data-lucide="chart-no-axes-combined"></i><strong>تقارير قرار</strong><span>ربح، تكلفة، مبيعات، مصروفات</span></article>
+        <article><i data-lucide="shield-check"></i><strong>أمان وتشغيل</strong><span>صلاحيات، نسخ احتياطي، ديمو تلقائي</span></article>
       </section>
 
-      <!-- ── PRODUCTS ── -->
-      <section class="products" id="products">
+      <section class="systems section" id="systems">
         <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>النسخ</span>
-          <h2>اختار النسخة المناسبة</h2>
-          <p>كمبيوتر مستقل وموبايل مستقل — والربط الداخلي بينهم متاح عند الحاجة</p>
+          <p class="eyebrow"><i data-lucide="monitor-smartphone"></i> الكمبيوتر والموبايل</p>
+          <h2>واجهة واحدة بروح مختلفة لكل جهاز</h2>
+          <p>الموقع بقى يعرض البرنامج كما سيستخدمه العميل: كمبيوتر للإدارة، موبايل للبيع والمتابعة، وتابلت للتقارير السريعة.</p>
         </div>
-
-        <div class="product-split">
-          <!-- Windows -->
-          <article class="product-card reveal">
-            <div class="product-badge">
-              <svg class="win-logo" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M5 8.6 22 6v17H5V8.6Z"/><path d="M24 5.7 43 3v20H24V5.7Z"/>
-                <path d="M5 25h17v17L5 39.4V25Z"/><path d="M24 25h19v20l-19-2.7V25Z"/>
-              </svg>
-              ويندوز
-            </div>
-            <div class="product-info">
-              <h3>نسخة الكمبيوتر</h3>
-              <p>للإدارة الكاملة داخل المحل — مناسبة للكاشير والمخزن والحسابات والتقارير</p>
-              <ul class="product-feats">
-                <li><i data-lucide="check"></i>نقطة بيع كاملة</li>
-                <li><i data-lucide="check"></i>مخزون وفئات وباركود</li>
-                <li><i data-lucide="check"></i>صلاحيات وشيفتات ورواتب</li>
-                <li><i data-lucide="check"></i>تقارير ربح وتكلفة</li>
-                <li><i data-lucide="check"></i>فاتورة ضريبية</li>
-                <li><i data-lucide="check"></i>نسخ احتياطي وتصدير</li>
-              </ul>
-              <button class="btn btn-ghost" type="button" data-open-feature="desktop">تفاصيل النسخة</button>
-            </div>
-            <div class="product-mockup">
-              <div class="mini-desk-top">
-                <span></span><span></span><span></span>
-              </div>
-              <div class="mini-desk-screen">
-                <img src="assets/pc/pos.png" alt="كاشير VolT الكمبيوتر" />
-              </div>
-              <div class="mini-desk-stand"></div>
-            </div>
+        <div class="system-grid">
+          <article class="system-card reveal">
+            <div class="system-shot desktop-shot"><img src="assets/pc/pos.png" alt="نقطة البيع على الكمبيوتر" /></div>
+            <h3>نسخة الكمبيوتر</h3>
+            <p>الإدارة الكاملة: POS، منتجات، مشتريات، عملاء، موردين، رواتب، تقارير، إعدادات، نسخ احتياطي.</p>
           </article>
-
-          <!-- Android -->
-          <article class="product-card product-card-mobile reveal">
-            <div class="product-badge product-badge-droid">
-              <svg class="droid-logo" viewBox="0 0 48 48" aria-hidden="true">
-                <path d="M15.6 13.5 11.8 8l2.1-1.4 4 5.8A16 16 0 0 1 24 11a16 16 0 0 1 6.1 1.2l4-5.8L36.2 8l-3.8 5.5A15.2 15.2 0 0 1 39 26v13a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4V26a15.2 15.2 0 0 1 6.6-12.5Z"/>
-                <circle cx="18" cy="23" r="2"/><circle cx="30" cy="23" r="2"/>
-              </svg>
-              أندرويد
-            </div>
-            <div class="product-info">
-              <h3>نسخة الموبايل</h3>
-              <p>للبيع والمتابعة السريعة من الهاتف — مع قراءة الباركود بالكاميرا</p>
-              <ul class="product-feats">
-                <li><i data-lucide="check"></i>واجهة موبايل متكيفة</li>
-                <li><i data-lucide="check"></i>كاشير وفواتير</li>
-                <li><i data-lucide="check"></i>مخزون ومنتجات</li>
-                <li><i data-lucide="check"></i>قراءة باركود بالكاميرا</li>
-                <li><i data-lucide="check"></i>إرسال فواتير واتساب</li>
-                <li><i data-lucide="check"></i>ربط بالكمبيوتر داخلياً</li>
-              </ul>
-              <button class="btn btn-ghost" type="button" data-open-feature="mobile">تفاصيل النسخة</button>
-            </div>
-            <div class="product-phones">
-              <div class="mini-phone">
-                <div class="mini-phone-notch"></div>
-                <div class="mini-phone-screen">
-                  <img src="assets/mobile/dashboard.png" alt="لوحة تحكم الموبايل" />
-                </div>
-              </div>
-              <div class="mini-phone mini-phone-back">
-                <div class="mini-phone-notch"></div>
-                <div class="mini-phone-screen">
-                  <img src="assets/mobile/products.png" alt="منتجات الموبايل" />
-                </div>
-              </div>
-            </div>
+          <article class="system-card reveal featured">
+            <div class="system-shot phone-shot"><img src="assets/mobile/dashboard.png" alt="لوحة الموبايل" /></div>
+            <h3>تطبيق أندرويد</h3>
+            <p>واجهة موبايل حقيقية للبيع السريع، قراءة باركود بالكاميرا، متابعة منتجات وفواتير وربط داخلي عند الحاجة.</p>
+          </article>
+          <article class="system-card reveal">
+            <div class="system-shot tablet-shot"><img src="assets/pc/reports.png" alt="التقارير على تابلت" /></div>
+            <h3>تابلت الإدارة</h3>
+            <p>عرض مريح للتقارير، الأداء اليومي، ملخص الحسابات، والمراقبة بدون الدخول في تفاصيل الكاشير.</p>
           </article>
         </div>
       </section>
 
-      <!-- ── FEATURES ── -->
-      <section class="features-sec" id="features">
+      <section class="features section" id="features">
         <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>المميزات</span>
-          <h2>إدارة كاملة مش شاشة كاشير بس</h2>
-          <p>كل ميزة شغّالة يومياً — من الفاتورة الضريبية لمقارنة الموردين</p>
+          <p class="eyebrow"><i data-lucide="sparkles"></i> مميزات البرنامج</p>
+          <h2>كل نشاط محتاج نظام يمسك التشغيل بالكامل</h2>
+          <p>دي المميزات الأساسية المعروضة للعميل بشكل تسويقي واضح، مع إبراز أن VolT ERP يدير النشاط كله وليس شاشة بيع فقط.</p>
         </div>
-
-        <div class="feat-grid">
-          <button class="feat-tile reveal" type="button" data-open-feature="pos">
-            <span class="feat-icon"><i data-lucide="monitor-up"></i></span>
-            <strong>نقطة البيع</strong>
-            <span>بحث، باركود، خصم، دفع</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="sales">
-            <span class="feat-icon"><i data-lucide="receipt-text"></i></span>
-            <strong>فواتير البيع</strong>
-            <span>عرض وطباعة وواتساب</span>
-          </button>
-          <button class="feat-tile feat-amber reveal" type="button" data-open-feature="taxInvoice">
-            <span class="feat-icon"><i data-lucide="file-badge-2"></i></span>
-            <strong>الفاتورة الضريبية</strong>
-            <span>VAT + بيانات المنشأة الرسمية</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="businessInfo">
-            <span class="feat-icon"><i data-lucide="building-2"></i></span>
-            <strong>بيانات المنشأة</strong>
-            <span>سجل تجاري ورقم ضريبي</span>
-          </button>
-          <button class="feat-tile feat-green reveal" type="button" data-open-feature="whatsapp">
-            <span class="feat-icon"><i data-lucide="send"></i></span>
-            <strong>فواتير واتساب</strong>
-            <span>إرسال منظم للعميل</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="barcode">
-            <span class="feat-icon"><i data-lucide="barcode"></i></span>
-            <strong>طباعة باركود</strong>
-            <span>توليد وقراءة وطباعة</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="printing">
-            <span class="feat-icon"><i data-lucide="printer-check"></i></span>
-            <strong>أنواع الطباعة</strong>
-            <span>A4 وإيصال وباركود وتقرير</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="inventory">
-            <span class="feat-icon"><i data-lucide="package-check"></i></span>
-            <strong>المخزون</strong>
-            <span>كميات وحدود وتنبيهات</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="units">
-            <span class="feat-icon"><i data-lucide="ruler"></i></span>
-            <strong>وحدات البيع</strong>
-            <span>قطعة، متر، لتر، كيلو، كرتون</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="reports">
-            <span class="feat-icon"><i data-lucide="chart-no-axes-combined"></i></span>
-            <strong>التقارير</strong>
-            <span>مبيعات وربح وتكلفة</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="people">
-            <span class="feat-icon"><i data-lucide="users-round"></i></span>
-            <strong>العملاء والموردين</strong>
-            <span>ديون وآجل ومدفوعات</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="staff">
-            <span class="feat-icon"><i data-lucide="shield-check"></i></span>
-            <strong>الموظفين والصلاحيات</strong>
-            <span>رواتب وشيفتات وتحكم</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="purchases">
-            <span class="feat-icon"><i data-lucide="truck"></i></span>
-            <strong>المشتريات</strong>
-            <span>فواتير وموردين وتكلفة</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="supplierCompare">
-            <span class="feat-icon"><i data-lucide="git-compare-arrows"></i></span>
-            <strong>مقارنة الموردين</strong>
-            <span>أفضل تكلفة لكل منتج</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="returns">
-            <span class="feat-icon"><i data-lucide="undo-2"></i></span>
-            <strong>المرتجعات والهالك</strong>
-            <span>مرتجع بيع وتالف مخزون</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="quotes">
-            <span class="feat-icon"><i data-lucide="clipboard-list"></i></span>
-            <strong>عروض الأسعار</strong>
-            <span>عرض وواتساب وطباعة</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="finance">
-            <span class="feat-icon"><i data-lucide="wallet-cards"></i></span>
-            <strong>الحسابات</strong>
-            <span>إيرادات ومصروفات وديون</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="debts">
-            <span class="feat-icon"><i data-lucide="credit-card"></i></span>
-            <strong>الديون والآجل</strong>
-            <span>مدفوعات ومتابعة أرصدة</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="salaries">
-            <span class="feat-icon"><i data-lucide="badge-dollar-sign"></i></span>
-            <strong>الرواتب</strong>
-            <span>أساسي وبدلات وخصومات</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="shifts">
-            <span class="feat-icon"><i data-lucide="clock-3"></i></span>
-            <strong>إدارة الشيفتات</strong>
-            <span>فتح وقفل ودرج كاشير</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="permissions">
-            <span class="feat-icon"><i data-lucide="lock-keyhole"></i></span>
-            <strong>المستخدمين</strong>
-            <span>صفحات مسموحة وتحكم كامل</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="activity">
-            <span class="feat-icon"><i data-lucide="scroll-text"></i></span>
-            <strong>سجل النشاط</strong>
-            <span>متابعة عمليات المستخدمين</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="backup">
-            <span class="feat-icon"><i data-lucide="database-backup"></i></span>
-            <strong>النسخ الاحتياطي</strong>
-            <span>حفظ واستيراد وتصدير</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="mobile">
-            <span class="feat-icon"><i data-lucide="smartphone"></i></span>
-            <strong>تطبيق أندرويد</strong>
-            <span>بيع ومتابعة وكاميرا</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="network">
-            <span class="feat-icon"><i data-lucide="network"></i></span>
-            <strong>الشبكة الداخلية</strong>
-            <span>رئيسي وتابع بدون كلاود</span>
-          </button>
-          <button class="feat-tile reveal" type="button" data-open-feature="updates">
-            <span class="feat-icon"><i data-lucide="sparkles"></i></span>
-            <strong>تطوير مستمر</strong>
-            <span>تحديثات وميزات حسب نشاطك</span>
-          </button>
+        <div class="feature-grid">
+          <article class="feature-card reveal"><i data-lucide="receipt-text"></i><h3>بيع وفواتير</h3><p>نقطة بيع، خصومات، عملاء، طرق دفع، تعليق فاتورة، استرجاع معلّق، وطباعة A4/حراري.</p></article>
+          <article class="feature-card reveal"><i data-lucide="package-check"></i><h3>مخزون وباركود</h3><p>منتجات بالصور، فئات، وحدات، حد أدنى، باركود، جرد، تسويات وتحويلات مخازن.</p></article>
+          <article class="feature-card reveal"><i data-lucide="truck"></i><h3>مشتريات وموردين</h3><p>فواتير شراء، مقارنة موردين، أوامر شراء، مرتجعات مورد، وتحديث تكلفة وكمية المنتج.</p></article>
+          <article class="feature-card reveal"><i data-lucide="users-round"></i><h3>عملاء CRM</h3><p>عملاء، ديون، مدفوعات، شرائح عملاء، نقاط ولاء، كوبونات، ومتابعات بعد البيع.</p></article>
+          <article class="feature-card reveal"><i data-lucide="message-circle"></i><h3>واتساب وحملات</h3><p>إرسال فاتورة أو عرض سعر، واختيار أرقام العملاء الموجودة لإرسال حملات ورسائل منظمة.</p></article>
+          <article class="feature-card reveal"><i data-lucide="wrench"></i><h3>صيانة وخدمات</h3><p>أوامر صيانة، حالة الجهاز، تكلفة الخدمة، ملاحظات الفني، وتسليم العميل.</p></article>
+          <article class="feature-card reveal"><i data-lucide="wallet-cards"></i><h3>حسابات وخزائن</h3><p>مصروفات، إيرادات، خزنة وبنك، قيود يومية، ملخص ربح وخسارة، ورواتب.</p></article>
+          <article class="feature-card reveal"><i data-lucide="shield-check"></i><h3>صلاحيات وأمان</h3><p>مستخدمين، أدوار، صلاحيات صفحات وحذف، سجل نشاط، وتنبيه تغيير كلمة المرور الافتراضية.</p></article>
+          <article class="feature-card reveal"><i data-lucide="database-backup"></i><h3>نسخ احتياطي SQLite</h3><p>قاعدة بيانات قوية، نسخ احتياطي، استيراد DB/CSV، وحفظ البيانات في مسار المستخدم.</p></article>
         </div>
       </section>
 
-      <!-- ── WORKFLOW ── -->
-      <section class="workflow-sec" id="workflow">
-        <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>سير العمل</span>
-          <h2>من أول منتج لآخر تقرير</h2>
-        </div>
-        <div class="flow-steps">
-          <button class="flow-step reveal" type="button" data-open-feature="inventory">
-            <span class="flow-num">01</span>
-            <strong>أدخل المنتج</strong>
-            <small>فئة وسعر وباركود</small>
-          </button>
-          <div class="flow-arrow" aria-hidden="true"><i data-lucide="arrow-left"></i></div>
-          <button class="flow-step reveal" type="button" data-open-feature="pos">
-            <span class="flow-num">02</span>
-            <strong>بيع بسرعة</strong>
-            <small>بحث أو ماسح أو كاميرا</small>
-          </button>
-          <div class="flow-arrow" aria-hidden="true"><i data-lucide="arrow-left"></i></div>
-          <button class="flow-step reveal" type="button" data-open-feature="whatsapp">
-            <span class="flow-num">03</span>
-            <strong>أرسل الفاتورة</strong>
-            <small>واتساب منظم للعميل</small>
-          </button>
-          <div class="flow-arrow" aria-hidden="true"><i data-lucide="arrow-left"></i></div>
-          <button class="flow-step reveal" type="button" data-open-feature="reports">
-            <span class="flow-num">04</span>
-            <strong>راجع الربح</strong>
-            <small>مبيعات ومصروفات وتكلفة</small>
-          </button>
+      <section class="live-demo section" id="live-demo">
+        <div class="demo-invite reveal">
+          <div>
+            <p class="eyebrow"><i data-lucide="play-circle"></i> تجربة البرنامج</p>
+            <h2>التجربة مخفية داخل واجهة خاصة عشان اللاندينج تفضل فخمة</h2>
+            <p>اضغط الزر وافتح Mini VolT ERP بواجهة كاملة: داشبورد، نقطة بيع، منتجات، فواتير، عروض أسعار، عملاء، صيانة، تقارير، إعدادات وواتساب.</p>
+          </div>
+          <button class="btn primary" type="button" data-open-demo><i data-lucide="monitor-up"></i> افتح التجربة التفاعلية</button>
         </div>
       </section>
 
-      <!-- ── SCREENS ── -->
-      <section class="screens-sec" id="screens">
+      <section class="missing section" id="missing">
         <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>من داخل VolT</span>
-          <h2>كل شاشة بتختصر وقتك</h2>
-          <p>كاشير ومخزون وتقارير وموبايل في نظام واحد مرتب</p>
+          <p class="eyebrow"><i data-lucide="list-checks"></i> ما كان ناقصًا في الموقع</p>
+          <h2>الموقع الآن أقرب لمحتوى البرنامج الحقيقي</h2>
+          <p>النسخة القديمة كانت تركز على الأساسيات. أضفنا إبرازًا للمميزات الموجودة في البرنامج ولم تكن واضحة تسويقيًا.</p>
         </div>
-
-        <div class="screens-grid">
-          <button class="screen-card screen-desk reveal" type="button" data-open-feature="reports">
-            <span class="screen-label"><strong>التقارير</strong><small>أرقام المبيعات والربح</small></span>
-            <span class="screen-frame">
-              <span class="screen-topbar"><b></b><b></b><b></b><em>التقارير</em></span>
-              <img src="assets/pc/reports.png" alt="تقارير VolT" />
-            </span>
-          </button>
-          <button class="screen-card screen-desk reveal" type="button" data-open-feature="inventory">
-            <span class="screen-label"><strong>إدارة المخزون</strong><small>منتجات وأسعار وكميات</small></span>
-            <span class="screen-frame">
-              <span class="screen-topbar"><b></b><b></b><b></b><em>المخزون</em></span>
-              <img src="assets/pc/products.png" alt="منتجات VolT" />
-            </span>
-          </button>
-          <button class="screen-card screen-desk reveal" type="button" data-open-feature="sales">
-            <span class="screen-label"><strong>فواتير البيع</strong><small>طباعة وواتساب وتفاصيل</small></span>
-            <span class="screen-frame">
-              <span class="screen-topbar"><b></b><b></b><b></b><em>الفواتير</em></span>
-              <img src="assets/pc/sales.png" alt="فواتير البيع" />
-            </span>
-          </button>
-          <button class="screen-card screen-desk reveal" type="button" data-open-feature="purchases">
-            <span class="screen-label"><strong>المشتريات</strong><small>فواتير الموردين والتكلفة</small></span>
-            <span class="screen-frame">
-              <span class="screen-topbar"><b></b><b></b><b></b><em>المشتريات</em></span>
-              <img src="assets/pc/purchases.png" alt="مشتريات VolT" />
-            </span>
-          </button>
-          <button class="screen-card screen-mob reveal" type="button" data-open-feature="mobile">
-            <span class="screen-label"><strong>واجهة الموبايل</strong><small>لوحة تحكم أندرويد</small></span>
-            <span class="phone-frame">
-              <span class="phone-notch"></span>
-              <img src="assets/mobile/dashboard.png" alt="لوحة تحكم الموبايل" />
-            </span>
-          </button>
-          <button class="screen-card screen-mob reveal" type="button" data-open-feature="pos">
-            <span class="screen-label"><strong>كاشير الموبايل</strong><small>بيع ومتابعة من الهاتف</small></span>
-            <span class="phone-frame">
-              <span class="phone-notch"></span>
-              <img src="assets/mobile/pos.png" alt="كاشير الموبايل" />
-            </span>
-          </button>
-          <button class="screen-card screen-mob reveal" type="button" data-open-feature="whatsapp">
-            <span class="screen-label"><strong>إرسال واتساب</strong><small>الفاتورة توصل منظمة</small></span>
-            <span class="phone-frame">
-              <span class="phone-notch"></span>
-              <img src="assets/mobile/whatsapp-preview.png" alt="واتساب VolT" />
-            </span>
-          </button>
+        <div class="matrix reveal">
+          <div><strong>مخازن متعددة</strong><span>Warehouses, Stock Movements, Transfers</span></div>
+          <div><strong>دورة شراء أوسع</strong><span>Purchase Orders, Supplier Returns</span></div>
+          <div><strong>CRM وتسويق</strong><span>Segments, Loyalty, Coupons, WhatsApp Campaigns</span></div>
+          <div><strong>صيانة وخدمات</strong><span>Service Orders للحاسب والموبايل والاكسسوارات</span></div>
+          <div><strong>محاسبة أعمق</strong><span>Cash Accounts, Ledger Entries, Profit View</span></div>
+          <div><strong>ذكاء تشغيلي</strong><span>Smart Center, Inventory Audit, Training Sales</span></div>
+          <div><strong>تنبيهات تشغيل</strong><span>Low Stock, Due Payments, Notifications</span></div>
+          <div><strong>طباعة أوسع</strong><span>A4, Thermal, Barcode Labels, Quotes</span></div>
         </div>
       </section>
 
-      <!-- ── OUTPUTS ── -->
-      <section class="outputs-sec" id="outputs">
+      <section class="downloads section" id="downloads">
         <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>مخرجات فعلية</span>
-          <h2>فواتير جاهزة للطباعة والواتساب</h2>
-          <p>A4 وحرارية وPDF — كلها من نفس النظام</p>
+          <p class="eyebrow"><i data-lucide="download"></i> التحميل</p>
+          <h2>حمّل النسخة المناسبة وابدأ الديمو التلقائي</h2>
+          <p>تم حذف أكواد التجربة من الموقع لأن الديمو يعمل مباشرة. بيانات الدخول فقط موجودة بالأسفل.</p>
         </div>
-        <div class="outputs-grid">
-          <!-- Print samples -->
-          <article class="output-card reveal">
-            <div class="output-head">
-              <i data-lucide="printer-check"></i>
-              <strong>عينات الطباعة</strong>
-            </div>
-            <div class="print-row">
-              <button class="print-thumb" type="button" data-open-feature="printing">
-                <div class="paper-wrap a4">
-                  <img src="assets/samples/print-quote-a4-page.png" alt="طباعة A4" />
-                </div>
-                <span>A4</span>
-              </button>
-              <button class="print-thumb" type="button" data-open-feature="printing">
-                <div class="paper-wrap thermal">
-                  <img src="assets/samples/print-thermal-page.png" alt="طباعة حرارية" />
-                </div>
-                <span>حرارية</span>
-              </button>
-              <button class="print-thumb" type="button" data-open-feature="printing">
-                <div class="paper-wrap a4">
-                  <img src="assets/samples/print-quote-a4.png" alt="عرض سعر A4" />
-                </div>
-                <span>عرض سعر</span>
-              </button>
-            </div>
-          </article>
-
-          <!-- WhatsApp preview -->
-          <article class="output-card reveal">
-            <div class="output-head">
-              <i data-lucide="message-circle"></i>
-              <strong>رسائل واتساب</strong>
-            </div>
-            <div class="wa-phone-mock">
-              <div class="wa-mock-top">
-                <span class="wa-avatar"></span>
-                <strong>فواتير VolT</strong>
-              </div>
-              <div class="wa-mock-chat">
-                <div class="wa-bubble">
-                  <img src="assets/samples/print-quote-a4-page.png" alt="فاتورة" />
-                  <div>
-                    <strong>POS_Invoice.pdf</strong>
-                    <span>1 صفحة · PDF · فاتورة بيع</span>
-                  </div>
-                  <small>10:17 ص</small>
-                </div>
-                <div class="wa-bubble">
-                  <img src="assets/samples/print-thermal-page.png" alt="إيصال" />
-                  <div>
-                    <strong>Salary_Gamal.pdf</strong>
-                    <span>1 صفحة · PDF · إيصال راتب</span>
-                  </div>
-                  <small>10:21 ص</small>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ── PLANS ── -->
-      <section class="plans-sec" id="plans">
-        <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>الاشتراكات</span>
-          <h2>اختار طريقة التفعيل</h2>
-          <p>اشتراك سنوي أو ترخيص دائم حسب احتياج نشاطك</p>
-        </div>
-        <div class="plans-grid">
-          <article class="plan-card reveal">
-            <div class="plan-icon"><i data-lucide="calendar-clock"></i></div>
-            <strong class="plan-name">اشتراك سنة</strong>
-            <p class="plan-desc">مناسب للتجربة الجادة والتشغيل السنوي</p>
-            <ul class="plan-items">
-              <li><i data-lucide="check"></i>تفعيل لمدة 12 شهر</li>
-              <li><i data-lucide="check"></i>نسخة كمبيوتر أو موبايل</li>
-              <li><i data-lucide="check"></i>إضافة جهاز تابع للشبكة</li>
-              <li><i data-lucide="check"></i>تحديثات مستمرة</li>
-              <li><i data-lucide="check"></i>دعم تركيب وتشغيل</li>
-            </ul>
-            <a class="btn btn-outline" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%83%20%D8%B3%D9%86%D8%A9%20VolT%20ERP" target="_blank" rel="noreferrer">
-              <i data-lucide="message-circle"></i>اطلب اشتراك سنة
-            </a>
-          </article>
-
-          <article class="plan-card plan-featured reveal">
-            <div class="plan-crown">الأقوى</div>
-            <div class="plan-icon"><i data-lucide="badge-check"></i></div>
-            <strong class="plan-name">ترخيص دائم</strong>
-            <p class="plan-desc">أفضل اختيار للتشغيل المستقر طويل المدى</p>
-            <ul class="plan-items">
-              <li><i data-lucide="check"></i>تفعيل دائم على الجهاز</li>
-              <li><i data-lucide="check"></i>مناسب للمحل أو الفرع</li>
-              <li><i data-lucide="check"></i>إمكانية نسخة تابع بسعر أقل</li>
-              <li><i data-lucide="check"></i>ملكية بدون تجديد سنوي</li>
-              <li><i data-lucide="check"></i>ميزة مخصوصة عند الاتفاق</li>
-            </ul>
-            <a class="btn btn-primary" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20%D8%AA%D8%B1%D8%AE%D9%8A%D8%B5%20%D8%AF%D8%A7%D8%A6%D9%85%20VolT%20ERP" target="_blank" rel="noreferrer">
-              <i data-lucide="shopping-bag"></i>اطلب الترخيص الدائم
-            </a>
-          </article>
-        </div>
-      </section>
-
-      <!-- ── DOWNLOADS ── -->
-      <section class="downloads-sec" id="downloads">
-        <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>التحميل</span>
-          <h2>جاهز للتحميل والتشغيل</h2>
-        </div>
-        <div class="dl-row">
-          <a class="dl-card reveal" href="https://drive.google.com/file/d/1jH-6dticyNJthUPfG5R2QevDHq_GMDP7/view?usp=drive_link" target="_blank" rel="noreferrer">
-            <svg class="win-logo" viewBox="0 0 48 48" aria-hidden="true">
-              <path d="M5 8.6 22 6v17H5V8.6Z"/><path d="M24 5.7 43 3v20H24V5.7Z"/>
-              <path d="M5 25h17v17L5 39.4V25Z"/><path d="M24 25h19v20l-19-2.7V25Z"/>
-            </svg>
-            <div>
-              <strong>Windows Setup</strong>
-              <span>تحميل النسخة</span>
-            </div>
-            <i data-lucide="download"></i>
+        <div class="download-grid">
+          <a class="download-card reveal" href="https://drive.usercontent.google.com/download?id=1svbiM4BloLEyqKaAJWHFarQqe69s04p-&export=download&authuser=0&confirm=t&uuid=a6b53315-d533-49ce-85ef-f01c53fdfe21&at=AAINaIKVawkwtBhU5XiSZBMLWgy9:1780195789682" target="_blank" rel="noreferrer">
+            <i data-lucide="monitor-down"></i>
+            <strong>Windows EXE</strong>
+            <span>نسخة الكمبيوتر للإدارة الكاملة</span>
           </a>
-          <a class="dl-card reveal" href="https://drive.google.com/file/d/1KUWEMq8AdMOfYhs-Xk5w9Nbi_OkjMZ6I/view?usp=sharing" target="_blank" rel="noreferrer">
-            <svg class="droid-logo" viewBox="0 0 48 48" aria-hidden="true">
-              <path d="M15.6 13.5 11.8 8l2.1-1.4 4 5.8A16 16 0 0 1 24 11a16 16 0 0 1 6.1 1.2l4-5.8L36.2 8l-3.8 5.5A15.2 15.2 0 0 1 39 26v13a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4V26a15.2 15.2 0 0 1 6.6-12.5Z"/>
-              <circle cx="18" cy="23" r="2"/><circle cx="30" cy="23" r="2"/>
-            </svg>
-            <div>
-              <strong>Android APK</strong>
-              <span>تحميل التطبيق</span>
-            </div>
-            <i data-lucide="download"></i>
+          <a class="download-card reveal" href="https://drive.usercontent.google.com/download?id=1hRydJo59YkpW6NSK37-2-oba8PFFdOZU&export=download&authuser=0&confirm=t&uuid=360df40f-8cf9-40cf-94be-1528702c8617&at=AAINaIL8iSIWdaeuoZscloQfXHex:1780195807312" target="_blank" rel="noreferrer">
+            <i data-lucide="smartphone"></i>
+            <strong>Android APK</strong>
+            <span>نسخة الموبايل للبيع والمتابعة</span>
           </a>
-          <a class="dl-card dl-wa reveal" href="https://wa.me/201098845589?text=%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20VolT" target="_blank" rel="noreferrer">
-            <i data-lucide="message-circle"></i>
-            <div>
-              <strong>مساعدة التركيب</strong>
-              <span>تواصل على واتساب</span>
-            </div>
-            <i data-lucide="arrow-left"></i>
+          <a class="download-card reveal" href="https://wa.me/201098845589?text=%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20VolT" target="_blank" rel="noreferrer">
+            <i data-lucide="headphones"></i>
+            <strong>تركيب ومساعدة</strong>
+            <span>تواصل لتركيب النسخة وتشغيلها</span>
           </a>
         </div>
       </section>
 
-      <!-- ── TRIAL ── -->
-      <section class="trial-sec" id="trial">
-        <div class="section-head reveal">
-          <span class="eyebrow-tag"><span class="eyebrow-dot"></span>التجربة</span>
-          <h2>جرّب قبل ما تشتري</h2>
-          <p>حمّل البرنامج وفعّل الديمو مباشرة — التجربة تبدأ من لحظة التفعيل</p>
-        </div>
-
-        <div class="trial-grid">
-          <!-- Login info -->
-          <div class="cred-card reveal">
-            <div class="cred-head">
-              <i data-lucide="user-round-check"></i>
-              <span>بيانات الدخول</span>
-            </div>
-            <div class="cred-pills">
-              <div class="cred-pill">
-                <span>اسم المستخدم</span>
-                <strong>admin</strong>
-                <button class="copy-pill-btn" type="button" data-copy-text="admin" aria-label="نسخ">
-                  <i data-lucide="copy"></i>
-                </button>
-              </div>
-              <div class="cred-pill">
-                <span>كلمة المرور</span>
-                <strong>admin123</strong>
-                <button class="copy-pill-btn" type="button" data-copy-text="admin123" aria-label="نسخ">
-                  <i data-lucide="copy"></i>
-                </button>
-              </div>
-            </div>
+      <section class="trial section" id="trial">
+        <div class="trial-card reveal">
+          <div>
+            <p class="eyebrow"><i data-lucide="user-round-check"></i> بيانات الدخول</p>
+            <h2>الديمو يبدأ تلقائيًا، لا تحتاج أي كود تجربة</h2>
+            <p>بعد تحميل البرنامج افتحه وسجل الدخول بالبيانات التالية. عند الشراء يتم إصدار ترخيص رسمي حسب الجهاز والخطة.</p>
           </div>
-
-          <!-- Demo cards -->
-          <div class="demo-cards reveal">
-            <article class="demo-card">
-              <div class="demo-card-head">
-                <svg class="win-logo" viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M5 8.6 22 6v17H5V8.6Z"/><path d="M24 5.7 43 3v20H24V5.7Z"/>
-                  <path d="M5 25h17v17L5 39.4V25Z"/><path d="M24 25h19v20l-19-2.7V25Z"/>
-                </svg>
-                <div>
-                  <strong>تجربة ويندوز</strong>
-                  <small>7 أيام من وقت التفعيل</small>
-                </div>
-              </div>
-              <p>انسخ الكود والصقه في شاشة التفعيل داخل نسخة الكمبيوتر</p>
-              <code id="pc-code" hidden>VOLT-eyJhcHAiOiJ2b2x0LXBvcyIsInYiOjEsInR5cGUiOiJkZW1vIiwibWFjaGluZUNvZGUiOiJBTlkiLCJjdXN0b21lciI6IkRlbW8gQ2xpZW50IiwicGxhbiI6IkRlbW8iLCJpc3N1ZWRBdCI6IjIwMjYtMDUtMThUMDg6MDQ6NTIuNzA4WiIsImV4cGlyZXNBdCI6bnVsbCwiZGVtb0RheXMiOjd9.fGJ0y-JvMMyW5aFnujOesCoXaFe1F6H0B6v3MXSshkI</code>
-              <button class="copy-code-btn" type="button" data-copy="#pc-code">
-                <i data-lucide="copy"></i>نسخ كود ويندوز
-              </button>
-            </article>
-            <article class="demo-card">
-              <div class="demo-card-head">
-                <svg class="droid-logo" viewBox="0 0 48 48" aria-hidden="true">
-                  <path d="M15.6 13.5 11.8 8l2.1-1.4 4 5.8A16 16 0 0 1 24 11a16 16 0 0 1 6.1 1.2l4-5.8L36.2 8l-3.8 5.5A15.2 15.2 0 0 1 39 26v13a4 4 0 0 1-4 4H13a4 4 0 0 1-4-4V26a15.2 15.2 0 0 1 6.6-12.5Z"/>
-                  <circle cx="18" cy="23" r="2"/><circle cx="30" cy="23" r="2"/>
-                </svg>
-                <div>
-                  <strong>تجربة أندرويد</strong>
-                  <small>3 أيام من وقت التفعيل</small>
-                </div>
-              </div>
-              <p>انسخ الكود والصقه في شاشة التفعيل داخل تطبيق أندرويد</p>
-              <code id="mobile-code" hidden>eyJhcHAiOiJ2b2x0LW1vYmlsZSIsInYiOjEsInR5cGUiOiJkZW1vIiwiZGV2aWNlSWQiOiIqIiwiY3VzdG9tZXIiOiJEZW1vIENsaWVudCIsInBsYW4iOiJEZW1vIiwiaXNzdWVkQXQiOiIyMDI2LTA1LTE4VDA2OjQ4OjIyLjgxOVoiLCJleHBpcmVzIjoibmV2ZXIiLCJkZW1vRGF5cyI6M30.gk7BHU68laMQnIEORCt4XoFeF_0uAZ3whXW6v9Po_Hc</code>
-              <button class="copy-code-btn" type="button" data-copy="#mobile-code">
-                <i data-lucide="copy"></i>نسخ كود أندرويد
-              </button>
-            </article>
-          </div>
-
-          <!-- Mini ERP Trial CTA -->
-          <div class="trial-cta reveal">
-            <div class="trial-cta-inner">
-              <i data-lucide="play-circle"></i>
-              <div>
-                <strong>جرّب النظام الآن</strong>
-                <span>استكشف VolT مباشرة من المتصفح</span>
-              </div>
-              <button class="btn btn-primary" type="button" data-open-trial>
-                افتح التجربة
-              </button>
-            </div>
+          <div class="credentials">
+            <button type="button" data-copy="#credUser"><span>اسم المستخدم</span><strong>admin</strong><i data-lucide="copy"></i></button>
+            <button type="button" data-copy="#credPass"><span>كلمة المرور</span><strong>admin123</strong><i data-lucide="copy"></i></button>
+            <code id="credUser" hidden>admin</code>
+            <code id="credPass" hidden>admin123</code>
           </div>
         </div>
       </section>
 
-      <!-- ── CONTACT ── -->
-      <section class="contact-sec">
+      <section class="contact section">
         <div class="contact-panel reveal">
-          <div class="contact-copy">
-            <span class="eyebrow-tag"><span class="eyebrow-dot"></span>جاهز للتشغيل</span>
-            <h2>خلّي النظام يشتغل مع طريقة نشاطك</h2>
-            <p>تحديثات مستمرة، ولو نشاطك محتاج ميزة مخصوصة نقدر نضيفها</p>
+          <div>
+            <p class="eyebrow"><i data-lucide="radio-tower"></i> جاهز لإدارة النشاط بالكامل</p>
+            <h2>خلّي تجربة العميل تبدأ بطاقة VolT</h2>
+            <p>واجهة تسويقية فخمة، تجربة POS داخل الموقع، ومحتوى مميزات مطابق لنسخة الكمبيوتر والموبايل.</p>
           </div>
-          <div class="contact-actions">
-            <a class="btn btn-primary btn-lg" href="https://wa.me/201098845589?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%AA%D8%B3%D8%B9%D9%8A%D8%B1%20VolT%20ERP" target="_blank" rel="noreferrer">
-              <i data-lucide="message-circle"></i>تواصل واتساب
-            </a>
-          </div>
+          <a class="btn primary" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B7%D9%84%D8%A8%20VolT%20ERP" target="_blank" rel="noreferrer">
+            <i data-lucide="message-circle"></i>
+            تواصل واتساب
+          </a>
         </div>
       </section>
-
-      <!-- ── FOOTER ── -->
-      <footer class="site-footer">
-        <div class="footer-brand">
-          <img src="assets/volt-icon.png" alt="VolT" width="32" height="32" />
-          <strong>VolT ERP</strong>
-        </div>
-        <div class="footer-mid">
-          <span>Developed by Gamal Ibrahim</span>
-          <a href="https://wa.me/201098845589" target="_blank" rel="noreferrer">01098845589</a>
-          <span>© 2025 جميع الحقوق محفوظة</span>
-        </div>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/VOLT.EG1" target="_blank" rel="noreferrer" class="social-btn fb-btn" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.2 8.3H16V5.2c-.9-.1-1.8-.2-2.7-.2-2.7 0-4.5 1.6-4.5 4.6v2.5H6v3.5h2.8V23h3.7v-7.4h3l.5-3.5h-3.5V10c0-1 .3-1.7 1.7-1.7Z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/VOLT.ERP1" target="_blank" rel="noreferrer" class="social-btn ig-btn" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-        </div>
-      </footer>
     </main>
 
-    <!-- ════ FEATURE MODAL ════ -->
-    <div class="feat-modal" id="feat-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="feat-modal-title">
-      <div class="feat-modal-card">
-        <button class="feat-modal-close" type="button" aria-label="إغلاق"><i data-lucide="x"></i></button>
-        <div class="feat-modal-visual">
-          <img id="feat-modal-img" src="assets/pc/dashboard.png" alt="" />
-        </div>
-        <div class="feat-modal-content">
-          <p class="eyebrow-tag" id="feat-modal-kicker"><span class="eyebrow-dot"></span>VolT</p>
-          <h2 id="feat-modal-title">ميزة VolT</h2>
-          <p id="feat-modal-text"></p>
-          <ul id="feat-modal-list"></ul>
-          <div class="feat-modal-nav">
-            <button type="button" data-nav="prev"><i data-lucide="chevron-right"></i>السابق</button>
-            <span id="feat-modal-counter">1 / 1</span>
-            <button type="button" data-nav="next">التالي<i data-lucide="chevron-left"></i></button>
-          </div>
-          <div class="feat-modal-actions">
-            <a class="btn btn-primary" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20VolT%20ERP" target="_blank" rel="noreferrer"><i data-lucide="shopping-bag"></i>اشتري الآن</a>
-            <a class="btn btn-outline" href="#trial"><i data-lucide="play-circle"></i>التجربة</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ════ MINI ERP TRIAL MODAL ════ -->
-    <div class="trial-modal" id="trial-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="trial-modal-title">
-      <div class="trial-modal-card">
-        <div class="trial-modal-head">
-          <div class="trial-modal-brand">
-            <img src="assets/volt-icon.png" alt="VolT" />
-            <span>VolT ERP</span>
-          </div>
-          <button class="trial-modal-close" type="button" aria-label="إغلاق"><i data-lucide="x"></i></button>
-        </div>
-        <div class="trial-modal-body" id="trial-modal-body">
-          <!-- Injected by JS -->
-        </div>
-      </div>
-    </div>
-
-    <!-- ════ ASSISTANT ════ -->
-    <aside class="assistant" aria-label="مساعد VolT">
-      <button class="assistant-trigger" type="button" aria-expanded="false">
-        <span class="assistant-ring"></span>
-        <span class="assistant-orb"><i data-lucide="bot"></i></span>
-      </button>
-      <div class="assistant-panel" aria-hidden="true">
-        <div class="assistant-head">
+    <div class="demo-modal" aria-hidden="true" role="dialog" aria-label="تجربة VolT ERP">
+      <div class="demo-modal-backdrop" data-close-demo></div>
+      <div class="demo-modal-panel">
+        <div class="demo-modal-head">
           <div>
-            <strong>مساعد VolT</strong>
-            <span>إجابات سريعة قبل الشراء</span>
+            <strong>Mini VolT ERP</strong>
+            <span>تجربة تفاعلية داخل الموقع</span>
           </div>
-          <button class="assistant-close" type="button" aria-label="إغلاق"><i data-lucide="x"></i></button>
+          <button type="button" data-close-demo aria-label="إغلاق التجربة"><i data-lucide="x"></i></button>
         </div>
-        <div class="assistant-msgs" id="assistant-msgs">
-          <div class="bot-msg">اسأل عن الشراء أو الاشتراك أو الترخيص أو الديمو أو الربط الداخلي</div>
+        <div class="mini-app" aria-label="تجربة VolT ERP داخل الموقع">
+          <aside class="mini-sidebar">
+            <div class="mini-brand">
+              <img src="assets/volt-icon.png" alt="" />
+              <div><strong>VolT ERP</strong><span>Demo Workspace</span></div>
+            </div>
+            <button class="mini-nav active" type="button" data-mini-page="dashboard"><i data-lucide="layout-dashboard"></i><span>الرئيسية</span></button>
+            <button class="mini-nav" type="button" data-mini-page="pos"><i data-lucide="monitor-dot"></i><span>نقطة البيع</span></button>
+            <button class="mini-nav" type="button" data-mini-page="products"><i data-lucide="boxes"></i><span>المنتجات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="warehouses"><i data-lucide="warehouse"></i><span>المخازن</span></button>
+            <button class="mini-nav" type="button" data-mini-page="purchases"><i data-lucide="truck"></i><span>المشتريات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="invoices"><i data-lucide="receipt-text"></i><span>الفواتير</span></button>
+            <button class="mini-nav" type="button" data-mini-page="quotes"><i data-lucide="file-text"></i><span>عروض الأسعار</span></button>
+            <button class="mini-nav" type="button" data-mini-page="customers"><i data-lucide="users-round"></i><span>العملاء والديون</span></button>
+            <button class="mini-nav" type="button" data-mini-page="whatsapp"><i data-lucide="send"></i><span>حملات واتساب</span></button>
+            <button class="mini-nav" type="button" data-mini-page="service"><i data-lucide="wrench"></i><span>الصيانة</span></button>
+            <button class="mini-nav" type="button" data-mini-page="finance"><i data-lucide="wallet-cards"></i><span>الحسابات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="staff"><i data-lucide="badge-dollar-sign"></i><span>الموظفون</span></button>
+            <button class="mini-nav" type="button" data-mini-page="reports"><i data-lucide="chart-no-axes-combined"></i><span>التقارير</span></button>
+            <button class="mini-nav" type="button" data-mini-page="activity"><i data-lucide="scroll-text"></i><span>سجل النشاط</span></button>
+            <button class="mini-nav" type="button" data-mini-page="settings"><i data-lucide="settings"></i><span>الإعدادات</span></button>
+          </aside>
+          <section class="mini-workspace">
+            <header class="mini-top">
+              <div>
+                <strong id="miniTitle">الرئيسية</strong>
+                <span id="miniSubtitle">نظرة سريعة على النشاط</span>
+              </div>
+              <div class="mini-top-actions">
+                <button type="button" data-mini-action="whatsapp"><i data-lucide="message-circle"></i> واتساب</button>
+                <button type="button" data-mini-action="backup"><i data-lucide="database-backup"></i> نسخة احتياطية</button>
+              </div>
+            </header>
+            <div class="mini-content" id="miniContent"></div>
+          </section>
         </div>
-        <div class="assistant-chips">
-          <button type="button" data-q="عايز أشتري VolT ERP">الشراء</button>
-          <button type="button" data-q="ما الفرق بين نسخة الكمبيوتر والموبايل">النسخ</button>
-          <button type="button" data-q="كيف يعمل الربط الداخلي">الربط</button>
-          <button type="button" data-q="ما هي أكواد التجربة">الديمو</button>
-          <button type="button" data-q="هل يدعم الباركود والواتساب">الباركود</button>
-        </div>
-        <form class="assistant-form" autocomplete="off">
-          <input id="assistant-input" type="text" placeholder="اكتب سؤالك" />
-          <button type="submit" aria-label="إرسال"><i data-lucide="send"></i></button>
-        </form>
       </div>
-    </aside>
-
-    <div class="toast-box" role="status" aria-live="polite"></div>
+    </div>
+    <div class="copy-toast" role="status" aria-live="polite">تم النسخ</div>
   </body>
 </html>
-HTMLEOF
-echo "HTML written"
