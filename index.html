@@ -1,366 +1,326 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VolT ERP | أدر أعمالك بقوة</title>
-    <link rel="icon" href="assets/volt-icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>VolT ERP | إدارة النشاط بالكامل</title>
+    <meta name="description" content="VolT ERP نظام متكامل لإدارة النشاط بالكامل: مبيعات، مخزون، مشتريات، عملاء، موردين، صيانة، حسابات، تقارير وواتساب." />
+    <meta property="og:title" content="VolT ERP" />
+    <meta property="og:description" content="منظومة واحدة لإدارة النشاط بالكامل على الكمبيوتر والموبايل." />
+    <meta property="og:image" content="assets/pc/dashboard.png" />
+    <meta name="theme-color" content="#070a12" />
+    <link rel="icon" href="assets/volt-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-glow" aria-hidden="true"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/volt-icon.png" alt="VolT" width="45" class="me-2">
-                VolT
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item"><a class="nav-link" href="#features">المميزات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#platforms">المنصات</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing">الأسعار</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#download">التحميل</a></li>
-                    <li class="nav-item ms-lg-3">
-                        <button class="btn btn-volt px-4" onclick="openDemo()">
-                            <i class="fas fa-play-circle me-1"></i> جرّب الآن
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="VolT ERP">
+        <img src="assets/volt-icon.png" alt="VolT ERP" />
+        <span>VolT ERP</span>
+      </a>
 
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="eyebrow">نظام إدارة متطور</div>
-                    <h1>أدر نشاطك بقوة <span class="volt-text">البرق</span></h1>
-                    <p class="hero-lead">منظومة متكاملة لإدارة المبيعات والمخازن والحسابات والموظفين. كل ما تحتاجه في مكان واحد.</p>
-                    <div class="hero-actions">
-                        <a href="https://wa.me/201098845589" class="btn btn-volt btn-lg px-5 py-3">
-                            <i class="fab fa-whatsapp me-2"></i> اطلب الآن
-                        </a>
-                        <button onclick="openDemo()" class="btn btn-outline-volt btn-lg px-5 py-3">
-                            <i class="fas fa-play me-2"></i> جرّب مباشرة
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="zoom-in" data-aos-duration="1200">
-                    <div class="hero-mockup-container">
-                        <img src="assets/pc/dashboard.png" alt="لوحة التحكم" class="img-fluid mockup-pc">
-                        <img src="assets/mobile/pos.png" alt="نقطة البيع" class="img-fluid mockup-mobile">
-                    </div>
-                </div>
-            </div>
-        </div>
+      <nav class="nav-links" aria-label="روابط الموقع">
+        <a href="#platforms">النسخ</a>
+        <a href="#capabilities">المميزات</a>
+        <a href="#operations">التشغيل</a>
+        <a href="#trial">التجربة</a>
+        <a href="#downloads">التحميل</a>
+      </nav>
+
+      <div class="top-actions">
+        <a class="top-whatsapp" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B9%D8%B1%D9%81%20%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84%20VolT%20ERP" target="_blank" rel="noreferrer">
+          <i data-lucide="message-circle"></i>
+          واتساب
+        </a>
+        <button class="nav-toggle" type="button" aria-label="القائمة" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </header>
 
-    <!-- Core Values -->
-    <section class="py-100">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="feature-card">
-                        <div class="icon-box"><i class="fas fa-bolt"></i></div>
-                        <h4>سرعة فائقة</h4>
-                        <p class="text-secondary">أداء عالي وسلس حتى مع كميات بيانات ضخمة.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-card">
-                        <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
-                        <h4>أمان وحماية</h4>
-                        <p class="text-secondary">تشفير كامل وصلاحيات دقيقة لكل مستخدم.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-card">
-                        <div class="icon-box"><i class="fas fa-sync"></i></div>
-                        <h4>ربط ذكي</h4>
-                        <p class="text-secondary">تزامن فوري بين أجهزتك من أي مكان.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-100">
-        <div class="container">
-            <div class="section-head" data-aos="fade-up">
-                <div class="eyebrow">المميزات</div>
-                <h2>كل ما تحتاجه لتشغيل أعمالك</h2>
-                <p>أدوات احترافية مصممة لتسهيل عملك اليومي</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6" data-aos="fade-up">
-                    <div class="feature-item">
-                        <i class="fas fa-cash-register"></i>
-                        <h5>نقطة البيع</h5>
-                        <ul class="list-unstyled text-secondary small">
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> واجهة سريعة</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> دعم الباركود</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> فواتير فورية</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="50">
-                    <div class="feature-item">
-                        <i class="fas fa-boxes"></i>
-                        <h5>المخازن</h5>
-                        <ul class="list-unstyled text-secondary small">
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> إدارة متقدمة</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> جرد وتسويات</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> تحويلات فورية</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <h5>التواصل</h5>
-                        <ul class="list-unstyled text-secondary small">
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> فواتير واتساب</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> حملات تسويقية</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> إدارة عملاء</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h5>التقارير</h5>
-                        <ul class="list-unstyled text-secondary small">
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> تقارير مالية</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> إحصائيات مبيعات</li>
-                            <li><i class="fas fa-check-circle text-volt me-2"></i> تحليلات متقدمة</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <button class="btn btn-outline-volt px-5 py-3" data-bs-toggle="modal" data-bs-target="#allFeaturesModal">
-                        عرض جميع المميزات
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- All Features Modal -->
-    <div class="modal fade" id="allFeaturesModal" tabindex="-1">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-            <div class="modal-content" style="background: linear-gradient(135deg, rgba(15, 20, 25, 0.95) 0%, rgba(21, 27, 40, 0.9) 100%); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 20px;">
-                <div class="modal-header border-secondary border-opacity-25">
-                    <h5 class="modal-title volt-text">جميع المميزات</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <h6 class="text-volt mb-3"><i class="fas fa-shopping-cart me-2"></i> المبيعات والفواتير</h6>
-                            <ul class="list-unstyled small text-secondary">
-                                <li><i class="fas fa-check text-volt me-2"></i> نقطة بيع سريعة وسهلة</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> فواتير حرارية و A4</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> إرسال فواتير واتساب</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> حملات واتساب تسويقية</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> عروض أسعار احترافية</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> مرتجعات ومبالغ مردودة</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> نقاط ولاء وكوبونات</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="text-volt mb-3"><i class="fas fa-boxes me-2"></i> المخازن والمشتريات</h6>
-                            <ul class="list-unstyled small text-secondary">
-                                <li><i class="fas fa-check text-volt me-2"></i> إدارة منتجات وأصناف</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> نظام باركود متكامل</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> مخازن متعددة</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> جرد وتسويات</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> أوامر شراء</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> إدارة موردين</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> مرتجعات موردين</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="text-volt mb-3"><i class="fas fa-user-tie me-2"></i> الإدارة والموظفين</h6>
-                            <ul class="list-unstyled small text-secondary">
-                                <li><i class="fas fa-check text-volt me-2"></i> إدارة موظفين</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> نظام رواتب</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> شيفتات وصلاحيات</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> سجل نشاط المستخدمين</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> الخزينة والبنك</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> المصروفات والإيرادات</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> قيود يومية</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="text-volt mb-3"><i class="fas fa-chart-bar me-2"></i> التقارير والتحليلات</h6>
-                            <ul class="list-unstyled small text-secondary">
-                                <li><i class="fas fa-check text-volt me-2"></i> تقارير مبيعات</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> تقارير أرباح وتكاليف</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> إحصائيات المخزون</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> تقارير العملاء</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> نسخ احتياطية</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> استيراد وتصدير بيانات</li>
-                                <li><i class="fas fa-check text-volt me-2"></i> دعم الفاتورة الضريبية</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="mobile-drawer" aria-hidden="true">
+      <a href="#platforms">النسخ</a>
+      <a href="#capabilities">المميزات</a>
+      <a href="#operations">التشغيل</a>
+      <a href="#trial">التجربة</a>
+      <a href="#downloads">التحميل</a>
     </div>
 
-    <!-- Platforms Section -->
-    <section id="platforms" class="py-100">
-        <div class="container">
-            <div class="section-head" data-aos="fade-up">
-                <div class="eyebrow">المنصات</div>
-                <h2>يعمل على جميع أجهزتك</h2>
-                <p>تجربة موحدة وسلسة على كل الأجهزة</p>
-            </div>
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <div class="feature-card">
-                                <div class="icon-box"><i class="fab fa-windows"></i></div>
-                                <h5>نسخة الكمبيوتر</h5>
-                                <p class="text-secondary">للإدارة الكاملة والعمليات المعقدة مع واجهة احترافية.</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card">
-                                <div class="icon-box"><i class="fab fa-android"></i></div>
-                                <h5>نسخة الموبايل</h5>
-                                <p class="text-secondary">للبيع السريع والجرد والمتابعة من أي مكان.</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="feature-card">
-                                <div class="icon-box"><i class="fas fa-tablet-alt"></i></div>
-                                <h5>دعم التابلت</h5>
-                                <p class="text-secondary">عرض إداري مريح مع واجهة محسّنة للشاشات الكبيرة.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="zoom-in">
-                    <img src="assets/pc/reports.png" alt="التقارير" class="img-fluid rounded-4 shadow-volt border border-secondary border-opacity-25">
-                </div>
-            </div>
+    <main id="home">
+      <section class="hero shell">
+        <div class="hero-content">
+          <span class="eyebrow"><i data-lucide="zap"></i> إدارة النشاط بالكامل</span>
+          <h1>نظام متكامل لإدارة نشاطك</h1>
+          <p>
+            VolT ERP منصة تشغيل تجمع البيع والمخزون والمشتريات والعملاء والصيانة والحسابات والتقارير في نظام واحد واضح.
+          </p>
+          <div class="saas-hero-metrics" aria-label="مؤشرات VolT ERP">
+            <span><strong>7 أيام</strong><small>تجربة الكمبيوتر</small></span>
+            <span><strong>3 أيام</strong><small>تجربة الموبايل</small></span>
+            <span><strong>PC + Android</strong><small>نسخ تشغيل</small></span>
+            <span><strong>LAN</strong><small>ربط داخلي</small></span>
+          </div>
+          <div class="hero-actions">
+            <button class="btn primary" type="button" data-open-demo>
+              <i data-lucide="play-circle"></i>
+              جرّب الآن مجانًا
+            </button>
+            <a class="btn secondary" href="#downloads">
+              <i data-lucide="download"></i>
+              تحميل النسخ
+            </a>
+            <a class="btn quiet" href="https://wa.me/201098845589?text=%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B4%D8%AA%D8%B1%D9%8A%20VolT%20ERP" target="_blank" rel="noreferrer">
+              <i data-lucide="shopping-bag"></i>
+              اطلب عرض السعر
+            </a>
+          </div>
         </div>
-    </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-100">
-        <div class="container">
-            <div class="section-head" data-aos="fade-up">
-                <div class="eyebrow">الأسعار</div>
-                <h2>استثمر في نظام يدوم معك</h2>
-                <p>خيارات مرنة تناسب احتياجاتك</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4" data-aos="fade-up">
-                    <div class="pricing-card">
-                        <h4 class="mb-3">اشتراك سنوي</h4>
-                        <div class="price">سنوي</div>
-                        <ul class="list-unstyled mb-4 text-secondary small">
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> تفعيل 12 شهر</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> دعم فني</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> تحديثات مستمرة</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> نسخة واحدة</li>
-                        </ul>
-                        <a href="https://wa.me/201098845589" class="btn btn-outline-volt w-100 py-3">اطلب الآن</a>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="pricing-card featured">
-                        <div class="popular-badge">الأفضل</div>
-                        <h4 class="mb-3">ترخيص دائم</h4>
-                        <div class="price">مدى الحياة</div>
-                        <ul class="list-unstyled mb-4 text-secondary small">
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> ملكية كاملة</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> بدون تجديد</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> تحديثات مجانية</li>
-                            <li class="mb-2"><i class="fas fa-check text-volt me-2"></i> خصومات إضافية</li>
-                        </ul>
-                        <a href="https://wa.me/201098845589" class="btn btn-volt w-100 py-3">اطلب الآن</a>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-visual" aria-label="عرض VolT ERP">
+          <img class="hero-photo" src="assets/premium/workspace-devices.jpg" alt="بيئة عمل احترافية" />
+          <div class="screen desktop-screen">
+            <img src="assets/pc/dashboard.png" alt="لوحة تحكم VolT ERP" />
+          </div>
+          <div class="screen mobile-screen">
+            <img src="assets/mobile/pos.png" alt="VolT ERP على الموبايل" />
+          </div>
+          <div class="hero-chip chip-one"><i data-lucide="receipt-text"></i> فواتير وبيع</div>
+          <div class="hero-chip chip-two"><i data-lucide="boxes"></i> مخزون مباشر</div>
         </div>
-    </section>
+      </section>
 
-    <!-- Download Section -->
-    <section id="download" class="py-100" style="background: linear-gradient(135deg, rgba(0, 210, 255, 0.1) 0%, rgba(0, 168, 204, 0.05) 100%);">
-        <div class="container">
-            <div class="row align-items-center text-center text-lg-start">
-                <div class="col-lg-7 mb-4 mb-lg-0" data-aos="fade-left">
-                    <div class="eyebrow">جاهز للبدء</div>
-                    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800;">حمّل الآن وابدأ فوراً</h2>
-                    <p class="text-secondary mt-3">اختر النسخة المناسبة لجهازك وابدأ تجربتك بدون تعقيدات.</p>
-                </div>
-                <div class="col-lg-5" data-aos="fade-right">
-                    <div class="d-flex flex-column gap-3">
-                        <a href="https://drive.google.com/file/d/1jH-6dticyNJthUPfG5R2QevDHq_GMDP7/view?usp=drive_link" class="btn btn-volt btn-lg py-3 px-4">
-                            <i class="fab fa-windows me-2"></i> تحميل للكمبيوتر
-                        </a>
-                        <a href="https://drive.google.com/file/d/1KUWEMq8AdMOfYhs-Xk5w9Nbi_OkjMZ6I/view?usp=sharing" class="btn btn-outline-volt btn-lg py-3 px-4">
-                            <i class="fab fa-android me-2"></i> تحميل للموبايل
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <section class="quick-strip shell" aria-label="ملخص VolT ERP">
+        <article>
+          <i data-lucide="monitor-dot"></i>
+          <strong>بيع أسرع</strong>
+          <span>POS، باركود، خصم، طباعة، واتساب</span>
+        </article>
+        <article>
+          <i data-lucide="warehouse"></i>
+          <strong>مخزون منظم</strong>
+          <span>مخازن، جرد، تحويلات، تسويات</span>
+        </article>
+        <article>
+          <i data-lucide="wallet-cards"></i>
+          <strong>حسابات أوضح</strong>
+          <span>خزنة، بنك، مصروفات، قيود</span>
+        </article>
+        <article>
+          <i data-lucide="chart-no-axes-combined"></i>
+          <strong>قرارات أدق</strong>
+          <span>تقارير ربح وتكلفة ومبيعات</span>
+        </article>
+      </section>
 
-    <!-- Demo Modal -->
-    <div id="demoOverlay" class="demo-overlay">
-        <div class="demo-container">
-            <div class="demo-header d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <img src="assets/volt-icon.png" width="35" class="me-2">
-                    <h5 class="mb-0">VolT ERP - تجربة مباشرة</h5>
-                </div>
-                <button class="btn-close btn-close-white" onclick="closeDemo()"></button>
-            </div>
-            <div class="demo-body">
-                <iframe id="demoFrame" src="about:blank" frameborder="0" class="w-100 h-100"></iframe>
-            </div>
+      <section class="saas-overview shell section-pad" aria-label="منصة تشغيل VolT ERP">
+        <div class="saas-copy">
+          <span class="eyebrow"><i data-lucide="layout-dashboard"></i> لوحة إدارة مباشرة</span>
+          <h2>قرارات أسرع</h2>
+          <p>يعرض النظام حالة النشاط لحظة بلحظة: المبيعات، النقدية، المخزون، الديون، الصيانة، أداء الموظفين والحملات، مع انتقال مباشر من المؤشر إلى الإجراء.</p>
+          <div class="saas-points">
+            <span>متابعة يومية للإيرادات والمصروفات</span>
+            <span>تنبيهات مخزون وديون وأوامر صيانة</span>
+            <span>إجراءات مباشرة من داخل لوحة الإدارة</span>
+          </div>
         </div>
+        <div class="saas-console" aria-label="معاينة لوحة تشغيل">
+          <div class="console-top">
+            <strong>لوحة الإدارة</strong>
+            <span>تشغيل مباشر</span>
+          </div>
+          <div class="console-metrics">
+            <span><b>26,450 ج.م</b><small>مبيعات اليوم</small></span>
+            <span><b>14</b><small>فواتير نشطة</small></span>
+            <span><b>6</b><small>تنبيهات مخزون</small></span>
+          </div>
+          <div class="console-flow">
+            <span>بيع</span>
+            <i></i>
+            <span>مخزون</span>
+            <i></i>
+            <span>حسابات</span>
+            <i></i>
+            <span>تقارير</span>
+          </div>
+          <div class="console-table">
+            <p><b>فاتورة مباشرة</b><em>مدفوعة</em></p>
+            <p><b>تحويل مخزن</b><em>مكتمل</em></p>
+            <p><b>حملة واتساب</b><em>جاهزة</em></p>
+            <p><b>أمر صيانة</b><em>قيد المتابعة</em></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="platforms shell section-pad" id="platforms">
+        <div class="section-head">
+          <span class="eyebrow"><i data-lucide="monitor-smartphone"></i> نسخة لكل طريقة عمل</span>
+          <h2>إدارة من أي جهاز</h2>
+        </div>
+        <div class="platform-grid">
+          <article class="platform-card">
+            <img src="assets/pc/pos.png" alt="نسخة الكمبيوتر" />
+            <div>
+              <strong>نسخة الكمبيوتر</strong>
+              <p>تشغيل شامل للمحل أو الفرع: مبيعات، مخزون، مشتريات، حسابات، مستخدمون، تقارير ونسخ احتياطي.</p>
+            </div>
+          </article>
+          <article class="platform-card featured">
+            <img src="assets/mobile/dashboard.png" alt="تطبيق أندرويد" />
+            <div>
+              <strong>تطبيق أندرويد</strong>
+              <p>بيع ومتابعة من الموبايل مع قراءة باركود بالكاميرا وتجربة مناسبة للتشغيل السريع داخل النشاط.</p>
+            </div>
+          </article>
+          <article class="platform-card">
+            <img src="assets/pc/reports.png" alt="متابعة على التابلت" />
+            <div>
+              <strong>متابعة على التابلت</strong>
+              <p>متابعة واضحة للأرقام المهمة والتقارير اليومية دون الدخول في تفاصيل التشغيل الدقيقة.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="capabilities shell section-pad" id="capabilities">
+        <div class="section-head">
+          <span class="eyebrow"><i data-lucide="sparkles"></i> منظومة متكاملة</span>
+          <h2>كل أدواتك في مكان واحد</h2>
+        </div>
+        <div class="capability-grid">
+          <article><i data-lucide="receipt-text"></i><strong>المبيعات والفواتير</strong><span>نقطة بيع، فواتير، خصومات، تعليق فاتورة، واتساب وطباعة.</span></article>
+          <article><i data-lucide="package-check"></i><strong>المنتجات والمخزون</strong><span>صور منتجات، فئات، وحدات، باركود، حد أدنى وجرد.</span></article>
+          <article><i data-lucide="truck"></i><strong>المشتريات والموردين</strong><span>فواتير شراء، أوامر شراء، مقارنة موردين ومرتجعات.</span></article>
+          <article><i data-lucide="users-round"></i><strong>العملاء والديون</strong><span>أرصدة، مدفوعات، متابعة، شرائح، ولاء وكوبونات.</span></article>
+          <article><i data-lucide="send"></i><strong>واتساب وحملات</strong><span>فواتير ورسائل وحملات على أرقام العملاء المسجلة.</span></article>
+          <article><i data-lucide="wrench"></i><strong>الصيانة والخدمات</strong><span>أوامر صيانة، حالة الجهاز، تكلفة الخدمة وتسليم العميل.</span></article>
+          <article><i data-lucide="wallet-cards"></i><strong>الحسابات والخزائن</strong><span>إيرادات، مصروفات، خزنة، بنك، قيود ورواتب.</span></article>
+          <article><i data-lucide="shield-check"></i><strong>الصلاحيات والأمان</strong><span>مستخدمين، صلاحيات، سجل نشاط وحماية كلمة المرور.</span></article>
+          <article><i data-lucide="database-backup"></i><strong>البيانات والنسخ الاحتياطي</strong><span>SQLite، استيراد وتصدير، CSV ونسخ احتياطي خارجي.</span></article>
+        </div>
+      </section>
+
+      <section class="operations shell section-pad" id="operations">
+        <div class="operation-panel">
+          <div>
+            <span class="eyebrow"><i data-lucide="network"></i> تشغيل مترابط</span>
+            <h2>تشغيل مترابط</h2>
+            <p>كل عملية داخل VolT ERP تنعكس مباشرة على المخزون والحسابات والتقارير، لتمنحك متابعة دقيقة دون دفاتر خارجية أو ملفات متفرقة.</p>
+          </div>
+          <div class="operation-list">
+            <span>بيع وتحديث مخزون</span>
+            <span>شراء وتكلفة منتج</span>
+            <span>دين وتحصيل عميل</span>
+            <span>صيانة وخدمة</span>
+            <span>تقارير وربح</span>
+            <span>نسخ احتياطي آمن</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="trial shell section-pad" id="trial">
+        <div class="trial-card">
+          <div>
+            <span class="eyebrow"><i data-lucide="play-circle"></i> تجربة مباشرة</span>
+            <h2>جرّب مجانًا</h2>
+            <p>ابدأ تجربة نسخة الكمبيوتر لمدة 7 أيام مجانًا، ونسخة الموبايل لمدة 3 أيام مجانًا، ثم ادخل مباشرة باستخدام بيانات التجربة الموضحة.</p>
+          </div>
+          <div class="trial-actions">
+            <button class="btn primary" type="button" data-open-demo><i data-lucide="monitor-up"></i> افتح التجربة</button>
+            <button class="credential" type="button" data-copy="#credUser"><span>اسم المستخدم</span><strong>admin</strong></button>
+            <button class="credential" type="button" data-copy="#credPass"><span>كلمة المرور</span><strong>admin123</strong></button>
+            <code id="credUser" hidden>admin</code>
+            <code id="credPass" hidden>admin123</code>
+          </div>
+        </div>
+      </section>
+
+      <section class="downloads shell section-pad" id="downloads">
+        <div class="section-head">
+          <span class="eyebrow"><i data-lucide="download"></i> التحميل</span>
+          <h2>حمّل النسخة المناسبة</h2>
+        </div>
+        <div class="download-grid">
+          <a class="download-card" href="https://drive.usercontent.google.com/download?id=1svbiM4BloLEyqKaAJWHFarQqe69s04p-&export=download&authuser=0&confirm=t&uuid=a6b53315-d533-49ce-85ef-f01c53fdfe21&at=AAINaIKVawkwtBhU5XiSZBMLWgy9:1780195789682" target="_blank" rel="noreferrer">
+            <i data-lucide="monitor-down"></i>
+            <strong>Windows EXE</strong>
+            <span>نسخة الكمبيوتر للإدارة الكاملة مع تجربة مجانية لمدة 7 أيام.</span>
+          </a>
+          <a class="download-card" href="https://drive.usercontent.google.com/download?id=1hRydJo59YkpW6NSK37-2-oba8PFFdOZU&export=download&authuser=0&confirm=t&uuid=360df40f-8cf9-40cf-94be-1528702c8617&at=AAINaIL8iSIWdaeuoZscloQfXHex:1780195807312" target="_blank" rel="noreferrer">
+            <i data-lucide="smartphone"></i>
+            <strong>Android APK</strong>
+            <span>نسخة الموبايل للبيع والمتابعة مع تجربة مجانية لمدة 3 أيام.</span>
+          </a>
+          <a class="download-card" href="https://wa.me/201098845589?text=%D8%A7%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A9%20%D9%81%D9%8A%20%D8%AA%D8%B1%D9%83%D9%8A%D8%A8%20VolT" target="_blank" rel="noreferrer">
+            <i data-lucide="headphones"></i>
+            <strong>مساعدة في التركيب</strong>
+            <span>تواصل لتجهيز التشغيل لأول مرة.</span>
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer shell">
+        <div>
+          <strong>VolT ERP</strong>
+          <span>إدارة النشاط بالكامل</span>
+        </div>
+        <a href="https://wa.me/201098845589" target="_blank" rel="noreferrer">01098845589</a>
+      </footer>
+    </main>
+
+    <div class="demo-modal" aria-hidden="true" role="dialog" aria-label="تجربة VolT ERP">
+      <div class="demo-modal-backdrop" data-close-demo></div>
+      <div class="demo-modal-panel">
+        <div class="demo-modal-head">
+          <div>
+            <strong>تجربة VolT ERP</strong>
+            <span>استكشف النظام قبل التحميل</span>
+          </div>
+          <button type="button" data-close-demo aria-label="إغلاق التجربة"><i data-lucide="x"></i></button>
+        </div>
+        <div class="mini-app" aria-label="تجربة VolT ERP">
+          <aside class="mini-sidebar">
+            <div class="mini-brand">
+              <img src="assets/volt-icon.png" alt="" />
+              <div><strong>VolT ERP</strong><span>مساحة تجربة</span></div>
+            </div>
+            <button class="mini-nav active" type="button" data-mini-page="dashboard"><i data-lucide="layout-dashboard"></i><span>الرئيسية</span></button>
+            <button class="mini-nav" type="button" data-mini-page="pos"><i data-lucide="monitor-dot"></i><span>نقطة البيع</span></button>
+            <button class="mini-nav" type="button" data-mini-page="products"><i data-lucide="boxes"></i><span>المنتجات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="warehouses"><i data-lucide="warehouse"></i><span>المخازن</span></button>
+            <button class="mini-nav" type="button" data-mini-page="purchases"><i data-lucide="truck"></i><span>المشتريات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="invoices"><i data-lucide="receipt-text"></i><span>الفواتير</span></button>
+            <button class="mini-nav" type="button" data-mini-page="quotes"><i data-lucide="file-text"></i><span>عروض الأسعار</span></button>
+            <button class="mini-nav" type="button" data-mini-page="customers"><i data-lucide="users-round"></i><span>العملاء والديون</span></button>
+            <button class="mini-nav" type="button" data-mini-page="whatsapp"><i data-lucide="send"></i><span>حملات واتساب</span></button>
+            <button class="mini-nav" type="button" data-mini-page="service"><i data-lucide="wrench"></i><span>الصيانة</span></button>
+            <button class="mini-nav" type="button" data-mini-page="finance"><i data-lucide="wallet-cards"></i><span>الحسابات</span></button>
+            <button class="mini-nav" type="button" data-mini-page="staff"><i data-lucide="badge-dollar-sign"></i><span>الموظفون</span></button>
+            <button class="mini-nav" type="button" data-mini-page="reports"><i data-lucide="chart-no-axes-combined"></i><span>التقارير</span></button>
+            <button class="mini-nav" type="button" data-mini-page="activity"><i data-lucide="scroll-text"></i><span>سجل النشاط</span></button>
+            <button class="mini-nav" type="button" data-mini-page="settings"><i data-lucide="settings"></i><span>الإعدادات</span></button>
+          </aside>
+          <section class="mini-workspace">
+            <header class="mini-top">
+              <div>
+                <strong id="miniTitle">الرئيسية</strong>
+                <span id="miniSubtitle">نظرة سريعة على النشاط</span>
+              </div>
+              <div class="mini-top-actions">
+                <button type="button" data-mini-action="whatsapp"><i data-lucide="message-circle"></i> واتساب</button>
+                <button type="button" data-mini-action="backup"><i data-lucide="database-backup"></i> نسخة احتياطية</button>
+              </div>
+            </header>
+            <div class="mini-content" id="miniContent"></div>
+          </section>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <p class="mb-1 text-secondary">© 2026 VolT ERP. جميع الحقوق محفوظة.</p>
-                    <small class="text-secondary">Developed by Gamal Ibrahim | 01098845589</small>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <a href="https://www.facebook.com/VOLT.EG1" class="text-secondary me-3 fs-5"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/VOLT.ERP1" class="text-secondary me-3 fs-5"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/201098845589" class="text-secondary fs-5"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="main.js"></script>
-</body>
+    <div class="copy-toast" role="status" aria-live="polite">تم النسخ</div>
+  </body>
 </html>

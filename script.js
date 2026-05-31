@@ -103,13 +103,13 @@ function addToCart(id) {
   const current = state.cart.get(product.id) || { ...product, qty: 0 };
   current.qty += 1;
   state.cart.set(product.id, current);
-  renderMiniPage("pos");
+  renderMiniPage("dashboard");
   toast("تمت إضافة المنتج للسلة");
 }
 
 function removeFromCart(id) {
   state.cart.delete(Number(id));
-  renderMiniPage("pos");
+  renderMiniPage("dashboard");
 }
 
 function finishSale() {
@@ -208,6 +208,77 @@ function renderDashboard() {
   `;
 }
 
+function renderDashboard() {
+  const salesTotal = state.invoices.reduce((sum, inv) => sum + inv.total, 0);
+  const lowStock = products.filter((p) => p.qty <= p.min).length;
+  const modules = [
+    ["pos", "monitor-dot", "نقطة البيع", "بيع سريع، خصومات، تعليق فاتورة، طباعة، واتساب."],
+    ["products", "package-check", "المنتجات والمخزون", "صور، باركود، فئات، وحدات، حد أدنى وتنبيهات."],
+    ["warehouses", "warehouse", "المخازن والتحويلات", "مخازن متعددة، جرد، تسويات وتحويلات داخلية."],
+    ["purchases", "truck", "المشتريات والموردين", "فواتير شراء، أوامر شراء، مرتجعات ومقارنة موردين."],
+    ["invoices", "receipt-text", "الفواتير والطباعة", "عرض، إرسال، طباعة، استرجاع وتعليق فواتير."],
+    ["quotes", "file-badge", "عروض الأسعار", "إنشاء عروض وتحويلها إلى فواتير عند الاعتماد."],
+    ["customers", "users-round", "العملاء والديون", "أرصدة، شرائح، متابعة، تحصيل وكوبونات."],
+    ["whatsapp", "send", "واتساب والحملات", "اختيار أرقام العملاء المسجلة وإرسال رسائل موجهة."],
+    ["service", "wrench", "الصيانة والخدمات", "أوامر صيانة، حالة الجهاز، تكلفة وتسليم."],
+    ["finance", "wallet-cards", "الحسابات والخزائن", "خزنة، بنك، مصروفات، قيود ورواتب."],
+    ["staff", "badge-dollar-sign", "الموظفون والصلاحيات", "رواتب، ورديات، أدوار وصلاحيات استخدام."],
+    ["reports", "chart-no-axes-combined", "التقارير والتحليل", "مبيعات، أرباح، تكلفة، مخزون وديون."],
+    ["activity", "scroll-text", "سجل النشاط", "متابعة عمليات المستخدمين وحركة النظام."],
+    ["settings", "settings", "الإعدادات والنسخ الاحتياطي", "بيانات الشركة، الربط الداخلي، النسخ والاستيراد."]
+  ];
+
+  return `
+    <div class="mini-kpi-grid">
+      ${kpi("مبيعات اليوم", money(salesTotal), "+18%")}
+      ${kpi("فواتير", state.invoices.length, "نشطة")}
+      ${kpi("منتجات", products.length, `${lowStock} تنبيه`)}
+      ${kpi("أوامر صيانة", state.services.length, "متابعة")}
+    </div>
+
+    <section class="demo-command-center">
+      <div>
+        <span class="mini-status warn">منظومة كاملة</span>
+        <strong>نظام متكامل لإدارة نشاطك بالكامل</strong>
+        <p>التجربة تعرض وحدات VolT ERP الأساسية في مسارات تفاعلية: البيع، المخزون، المشتريات، العملاء، الحسابات، الصيانة، واتساب، التقارير والإعدادات.</p>
+      </div>
+      <div class="demo-command-actions">
+        <button class="mini-action" type="button" data-mini-page-link="pos">${icon("monitor-dot")} فتح نقطة البيع</button>
+        <button class="mini-action" type="button" data-mini-page-link="reports">${icon("chart-no-axes-combined")} عرض التقارير</button>
+      </div>
+    </section>
+
+    <div class="demo-feature-flow">
+      ${modules.map(([page, iconName, title, desc]) => `
+        <button class="demo-feature-card" type="button" data-mini-page-link="${page}">
+          ${icon(iconName)}
+          <span>
+            <strong>${title}</strong>
+            <small>${desc}</small>
+          </span>
+        </button>
+      `).join("")}
+    </div>
+
+    <div class="mini-grid two">
+      <section class="mini-panel">
+        <h3>آخر العمليات <span class="mini-status">Live</span></h3>
+        <div class="mini-list">
+          ${state.invoices.slice(0, 3).map((inv) => row(inv.id, inv.customer, money(inv.total), inv.status)).join("")}
+        </div>
+      </section>
+      <section class="mini-panel">
+        <h3>أقسام جاهزة للتجربة</h3>
+        <div class="mini-list">
+          ${row("المبيعات", "POS وفواتير وطباعة", "جاهز", "نشط")}
+          ${row("المخزون", "منتجات ومخازن وجرد", "جاهز", "نشط")}
+          ${row("الإدارة", "حسابات وتقارير وصلاحيات", "جاهز", "نشط")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function kpi(label, value, foot) {
   return `<article class="mini-kpi"><span>${label}</span><strong>${value}</strong><small>${foot}</small></article>`;
 }
@@ -254,6 +325,114 @@ function renderPOS() {
           <button class="btn primary" type="button" data-finish-sale>${icon("receipt-text")} إنهاء البيع</button>
         </div>
       </section>
+    </div>
+  `;
+}
+
+function renderPOS() {
+  const t = totals();
+  const rows = cartRows();
+  const invoiceCode = `INV-${String(state.invoices.length + 1).padStart(4, "0")}`;
+  return `
+    <div class="pos-pro">
+      <section class="pos-catalog">
+        <div class="pos-catalog-head">
+          <div>
+            <span class="mini-status warn">كاشير مباشر</span>
+            <h3>نقطة البيع</h3>
+            <p>اختيار سريع، باركود، أسعار، مخزون، فاتورة وواتساب من نفس الشاشة.</p>
+          </div>
+          <button class="mini-action" type="button" data-fake-save>${icon("scan-barcode")} قراءة باركود</button>
+        </div>
+
+        <div class="pos-search-row">
+          <label class="pos-search">
+            ${icon("search")}
+            <input class="mini-input" placeholder="بحث باسم المنتج أو الباركود" />
+          </label>
+          <select class="mini-select">
+            <option>كل الفئات</option>
+            <option>لابتوبات</option>
+            <option>اكسسوارات</option>
+            <option>طباعة وخدمات</option>
+          </select>
+        </div>
+
+        <div class="pos-chips" aria-label="فئات سريعة">
+          <button type="button">الكل</button>
+          <button type="button">الأكثر بيعاً</button>
+          <button type="button">لابتوبات</button>
+          <button type="button">اكسسوارات</button>
+          <button type="button">خدمات</button>
+        </div>
+
+        <div class="pos-products">
+          ${products.map((p) => `
+            <button class="pos-card" type="button" data-add-cart="${p.id}">
+              <span class="pos-card-art">
+                <span>${p.code}</span>
+              </span>
+              <span class="pos-card-body">
+                <strong>${p.name}</strong>
+                <small>${p.category} | مخزون ${p.qty}</small>
+                <em>${money(p.price)}</em>
+              </span>
+            </button>
+          `).join("")}
+        </div>
+      </section>
+
+      <section class="pos-checkout">
+        <div class="pos-checkout-head">
+          <div>
+            <span>فاتورة حالية</span>
+            <strong>${invoiceCode}</strong>
+          </div>
+          <em>${new Date().toLocaleTimeString("ar-EG", { hour: "2-digit", minute: "2-digit" })}</em>
+        </div>
+
+        <div class="pos-mini-fields">
+          <label>العميل<select class="mini-select"><option>عميل نقدي</option><option>شركة النور</option><option>مركز جيمينج</option></select></label>
+          <label>الدفع<select class="mini-select"><option>نقدي</option><option>فيزا</option><option>محفظة</option><option>آجل</option></select></label>
+          <label>خصم<input class="mini-input" value="${Math.round(t.discount)}" inputmode="decimal" /></label>
+          <label>واتساب<input class="mini-input" placeholder="رقم العميل" inputmode="tel" /></label>
+        </div>
+
+        <div class="pos-cart-list">
+          ${rows.length ? rows.map((item) => `
+            <div class="pos-cart-item">
+              <div>
+                <strong>${item.name}</strong>
+                <small>${item.qty} x ${money(item.price)}</small>
+              </div>
+              <span>${money(item.qty * item.price)}</span>
+              <button class="mini-icon-btn" type="button" data-remove-cart="${item.id}" aria-label="حذف المنتج">x</button>
+            </div>
+          `).join("") : `<div class="demo-cart-empty">اضغط على أي منتج لإضافته للفاتورة</div>`}
+        </div>
+
+        <div class="pos-summary">
+          <div><span>الإجمالي الفرعي</span><strong>${money(t.subtotal)}</strong></div>
+          <div><span>الخصم</span><strong>${money(t.discount)}</strong></div>
+          <div><span>ضريبة 14%</span><strong>${money(t.tax)}</strong></div>
+          <div class="grand"><span>الإجمالي النهائي</span><strong>${money(t.total)}</strong></div>
+        </div>
+
+        <div class="pos-action-grid">
+          <button class="mini-action" type="button" data-fake-save>${icon("pause-circle")} تعليق</button>
+          <button class="mini-action" type="button" data-fake-whatsapp>${icon("message-circle")} واتساب</button>
+          <button class="mini-action" type="button" data-fake-save>${icon("printer")} طباعة</button>
+          <button class="btn primary" type="button" data-finish-sale>${icon("badge-check")} إتمام البيع</button>
+        </div>
+      </section>
+
+      <aside class="pos-receipt-preview" aria-label="معاينة الفاتورة">
+        <strong>معاينة الفاتورة</strong>
+        <span>VolT ERP</span>
+        <div>${invoiceCode}</div>
+        ${rows.slice(0, 3).map((item) => `<p><b>${item.name}</b><em>${money(item.qty * item.price)}</em></p>`).join("")}
+        <footer><span>الصافي</span><b>${money(t.total)}</b></footer>
+      </aside>
     </div>
   `;
 }
@@ -564,7 +743,7 @@ function openDemo() {
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
-  renderMiniPage(state.page || "dashboard");
+  renderMiniPage("dashboard");
 }
 
 function closeDemo() {
@@ -583,4 +762,5 @@ document.addEventListener("DOMContentLoaded", () => {
   state.cart.set(1, { ...products[0], qty: 1 });
   state.cart.set(3, { ...products[2], qty: 1 });
   renderMiniPage("dashboard");
+  if (new URLSearchParams(window.location.search).get("demo") === "1") openDemo();
 });
