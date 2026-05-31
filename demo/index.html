@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolT ERP Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 250px;
+            --volt-blue: #00d2ff;
+            --volt-dark: #1a1d21;
+        }
+        body { background: #f4f7f6; font-family: 'Segoe UI', sans-serif; height: 100vh; overflow: hidden; }
+        .sidebar { width: var(--sidebar-width); background: var(--volt-dark); color: white; height: 100vh; position: fixed; right: 0; top: 0; transition: 0.3s; }
+        .main-content { margin-right: var(--sidebar-width); height: 100vh; overflow-y: auto; padding: 20px; }
+        .nav-link { color: rgba(255,255,255,0.7); padding: 12px 20px; border-radius: 0; transition: 0.3s; border-right: 4px solid transparent; }
+        .nav-link:hover, .nav-link.active { color: white; background: rgba(255,255,255,0.05); border-right-color: var(--volt-blue); }
+        .nav-link i { width: 25px; }
+        .stat-card { background: white; border-radius: 15px; padding: 20px; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .pos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; }
+        .product-card { background: white; border-radius: 10px; padding: 10px; text-align: center; cursor: pointer; transition: 0.2s; border: 1px solid #eee; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--volt-blue); }
+        .cart-panel { background: white; border-radius: 15px; height: calc(100vh - 40px); display: flex; flex-direction: column; }
+        .login-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--volt-dark); z-index: 10000; display: flex; align-items: center; justify-content: center; }
+        .login-card { background: #252a30; padding: 40px; border-radius: 20px; width: 400px; text-align: center; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-card shadow-lg">
+            <img src="../assets/volt-icon.png" width="60" class="mb-4">
+            <h3>تسجيل الدخول</h3>
+            <p class="text-white-50 mb-4">استخدم البيانات الافتراضية للتجربة</p>
+            <div class="mb-3 text-start">
+                <label class="form-label small">اسم المستخدم</label>
+                <input type="text" id="username" class="form-control bg-dark text-white border-secondary" value="admin">
+            </div>
+            <div class="mb-4 text-start">
+                <label class="form-label small">كلمة المرور</label>
+                <input type="password" id="password" class="form-control bg-dark text-white border-secondary" value="admin123">
+            </div>
+            <button class="btn btn-info w-100 py-2 fw-bold" onclick="login()">دخول التجربة</button>
+            <div class="mt-3 small text-white-50">
+                admin / admin123
+            </div>
+        </div>
+    </div>
+
+    <div id="appInterface" style="display:none;">
+        <!-- Sidebar -->
+        <div class="sidebar shadow">
+            <div class="p-4 text-center border-bottom border-secondary border-opacity-25">
+                <h4 class="mb-0 volt-text fw-bold" style="color:var(--volt-blue)">VolT ERP</h4>
+                <small class="text-white-50">نظام الإدارة المتكامل</small>
+            </div>
+            <nav class="nav flex-column mt-3">
+                <a class="nav-link active" href="#" onclick="showSection('dashboard')"><i class="fas fa-home"></i> الرئيسية</a>
+                <a class="nav-link" href="#" onclick="showSection('pos')"><i class="fas fa-cash-register"></i> نقطة البيع POS</a>
+                <a class="nav-link" href="#" onclick="showSection('products')"><i class="fas fa-boxes"></i> المنتجات</a>
+                <a class="nav-link" href="#" onclick="showSection('sales')"><i class="fas fa-file-invoice-dollar"></i> المبيعات</a>
+                <a class="nav-link" href="#" onclick="showSection('customers')"><i class="fas fa-users"></i> العملاء</a>
+                <a class="nav-link" href="#" onclick="showSection('reports')"><i class="fas fa-chart-bar"></i> التقارير</a>
+                <a class="nav-link" href="#" onclick="showSection('hr')"><i class="fas fa-user-tie"></i> الموظفين</a>
+                <a class="nav-link" href="#" onclick="showSection('settings')"><i class="fas fa-cog"></i> الإعدادات</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Section -->
+            <div id="section-dashboard" class="app-section">
+                <h3 class="mb-4">لوحة التحكم</h3>
+                <div class="row g-4 mb-4">
+                    <div class="col-md-3">
+                        <div class="stat-card border-start border-primary border-5">
+                            <small class="text-muted">مبيعات اليوم</small>
+                            <h2 class="mb-0 mt-2">1,250 <small class="fs-6">ج.م</small></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card border-start border-success border-5">
+                            <small class="text-muted">إجمالي الطلبات</small>
+                            <h2 class="mb-0 mt-2">42</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card border-start border-info border-5">
+                            <small class="text-muted">المنتجات النشطة</small>
+                            <h2 class="mb-0 mt-2">158</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card border-start border-warning border-5">
+                            <small class="text-muted">تنبيهات المخزون</small>
+                            <h2 class="mb-0 mt-2 text-danger">5</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="stat-card">
+                            <h5>آخر العمليات</h5>
+                            <table class="table mt-3">
+                                <thead>
+                                    <tr>
+                                        <th>رقم الفاتورة</th>
+                                        <th>العميل</th>
+                                        <th>المبلغ</th>
+                                        <th>الحالة</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>#1001</td><td>عميل نقدي</td><td>150 ج.م</td><td><span class="badge bg-success">مكتمل</span></td></tr>
+                                    <tr><td>#1002</td><td>أحمد محمد</td><td>450 ج.م</td><td><span class="badge bg-success">مكتمل</span></td></tr>
+                                    <tr><td>#1003</td><td>شركة النور</td><td>1,200 ج.م</td><td><span class="badge bg-warning text-dark">آجل</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <h5>أكثر المنتجات مبيعاً</h5>
+                            <div class="mt-3">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>منتج أ</span>
+                                    <span class="fw-bold">85 قطعة</span>
+                                </div>
+                                <div class="progress mb-3" style="height: 5px;">
+                                    <div class="progress-bar bg-info" style="width: 85%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>منتج ب</span>
+                                    <span class="fw-bold">60 قطعة</span>
+                                </div>
+                                <div class="progress mb-3" style="height: 5px;">
+                                    <div class="progress-bar bg-info" style="width: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POS Section -->
+            <div id="section-pos" class="app-section" style="display:none;">
+                <div class="row g-3">
+                    <div class="col-md-8">
+                        <div class="input-group mb-3 shadow-sm">
+                            <span class="input-group-text bg-white border-0"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control border-0 py-2" placeholder="ابحث عن منتج أو امسح الباركود...">
+                        </div>
+                        <div class="pos-grid">
+                            <div class="product-card" onclick="addToCart('منتج مثال 1', 50)">
+                                <div class="bg-light rounded mb-2 py-4"><i class="fas fa-box fa-2x text-muted"></i></div>
+                                <h6 class="mb-1">منتج مثال 1</h6>
+                                <div class="text-primary fw-bold">50 ج.م</div>
+                            </div>
+                            <div class="product-card" onclick="addToCart('منتج مثال 2', 120)">
+                                <div class="bg-light rounded mb-2 py-4"><i class="fas fa-box fa-2x text-muted"></i></div>
+                                <h6 class="mb-1">منتج مثال 2</h6>
+                                <div class="text-primary fw-bold">120 ج.م</div>
+                            </div>
+                            <div class="product-card" onclick="addToCart('منتج مثال 3', 75)">
+                                <div class="bg-light rounded mb-2 py-4"><i class="fas fa-box fa-2x text-muted"></i></div>
+                                <h6 class="mb-1">منتج مثال 3</h6>
+                                <div class="text-primary fw-bold">75 ج.م</div>
+                            </div>
+                            <!-- Add more items as needed -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cart-panel shadow-sm p-3">
+                            <h5 class="mb-3 border-bottom pb-2">سلة البيع</h5>
+                            <div id="cartItems" class="flex-grow-1 overflow-auto mb-3">
+                                <p class="text-center text-muted mt-5">السلة فارغة</p>
+                            </div>
+                            <div class="border-top pt-3">
+                                <div class="d-flex justify-content-between mb-2 fs-5 fw-bold">
+                                    <span>الإجمالي:</span>
+                                    <span id="cartTotal">0</span>
+                                </div>
+                                <button class="btn btn-success w-100 py-3 mb-2" onclick="checkout()">
+                                    <i class="fas fa-check-circle me-1"></i> إتمام البيع (F12)
+                                </button>
+                                <button class="btn btn-outline-danger w-100" onclick="clearCart()">مسح السلة</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections placeholder -->
+            <div id="section-products" class="app-section" style="display:none;">
+                <h3>إدارة المنتجات والمخزون</h3>
+                <div class="stat-card mt-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i> إضافة منتج جديد</button>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-outline-secondary btn-sm">استيراد CSV</button>
+                            <button class="btn btn-outline-secondary btn-sm">تصدير Excel</button>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>كود</th>
+                                <th>اسم المنتج</th>
+                                <th>الفئة</th>
+                                <th>السعر</th>
+                                <th>الكمية</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>101</td><td>قميص قطن</td><td>ملابس</td><td>250 ج.م</td><td>15</td><td><button class="btn btn-sm btn-light"><i class="fas fa-edit"></i></button></td></tr>
+                            <tr><td>102</td><td>بنطلون جينز</td><td>ملابس</td><td>400 ج.م</td><td>8</td><td><button class="btn btn-sm btn-light"><i class="fas fa-edit"></i></button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            if(user === 'admin' && pass === 'admin123') {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('appInterface').style.display = 'block';
+            } else {
+                alert('بيانات الدخول غير صحيحة');
+            }
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.app-section').forEach(s => s.style.display = 'none');
+            document.getElementById('section-' + sectionId).style.display = 'block';
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        let cart = [];
+        function addToCart(name, price) {
+            cart.push({name, price});
+            renderCart();
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            if(cart.length === 0) {
+                container.innerHTML = '<p class="text-center text-muted mt-5">السلة فارغة</p>';
+                document.getElementById('cartTotal').innerText = '0';
+                return;
+            }
+            container.innerHTML = cart.map((item, index) => `
+                <div class="d-flex justify-content-between align-items-center mb-2 p-2 bg-light rounded">
+                    <div>
+                        <div class="fw-bold">${item.name}</div>
+                        <small class="text-muted">${item.price} ج.م</small>
+                    </div>
+                    <button class="btn btn-sm text-danger" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
+                </div>
+            `).join('');
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('cartTotal').innerText = total + ' ج.م';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        function clearCart() {
+            cart = [];
+            renderCart();
+        }
+
+        function checkout() {
+            if(cart.length === 0) return alert('السلة فارغة');
+            alert('تم إتمام العملية بنجاح! جاري طباعة الفاتورة وإرسالها لواتساب العميل...');
+            clearCart();
+        }
+    </script>
+</body>
+</html>
